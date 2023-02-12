@@ -116,9 +116,8 @@ So there are certain BODS schema definitions which don't have an RDF equivalent 
 Because of this, you may use and RDF repository exclusively for graph-based queries, and then
 de-reference JSON statement details from a primary database.
 
-Below is an example on how to addess this and import the BODS register in Elasticsearch
-and an RDF repository while only reading the original dataset once. This is obviously very crude, as it
-lacks error handling, retry logic etc, but we'll leave those to the application for now.
+Below is a very crude example on how to addess this and import the BODS register in Elasticsearch
+and an RDF repository while only reading the dataset once.
 
 ```kotlin
 val repository = repositoryManager.getRepository("bods-rdf")
