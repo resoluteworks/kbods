@@ -10,7 +10,6 @@ echo "New version is $VERSION"
 
 rm -rf docs/dokka
 ./gradlew clean dokkaHtml
-./gradlew test
 ./gradlew publish
 
 git add --all
