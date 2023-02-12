@@ -1,0 +1,4 @@
+SELECT (COUNT(distinct ?s) as ?count)
+WHERE {
+    ?s <http://test.com/plugin-test-predicate> ?p .
+}

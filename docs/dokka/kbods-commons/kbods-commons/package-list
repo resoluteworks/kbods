@@ -1,0 +1,30 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:org.kbods.utils////PointingToDeclaration/kbods-commons/org.kbods.utils/index.html
+$dokka.location:org.kbods.utils//checkOk/okhttp3.Response#/PointingToDeclaration/kbods-commons/org.kbods.utils/check-ok.html
+$dokka.location:org.kbods.utils//checkStatus/okhttp3.Response#kotlin.IntArray/PointingToDeclaration/kbods-commons/org.kbods.utils/check-status.html
+$dokka.location:org.kbods.utils//get/okhttp3.OkHttpClient#kotlin.String#kotlin.collections.Map[kotlin.String,kotlin.String]/PointingToDeclaration/kbods-commons/org.kbods.utils/get.html
+$dokka.location:org.kbods.utils//grouped/kotlin.Number#/PointingToDeclaration/kbods-commons/org.kbods.utils/grouped.html
+$dokka.location:org.kbods.utils//gunzip/java.io.File#java.io.File/PointingToDeclaration/kbods-commons/org.kbods.utils/gunzip.html
+$dokka.location:org.kbods.utils//gunzip/java.io.InputStream#java.io.File/PointingToDeclaration/kbods-commons/org.kbods.utils/gunzip.html
+$dokka.location:org.kbods.utils//httpClient/#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/kbods-commons/org.kbods.utils/http-client.html
+$dokka.location:org.kbods.utils//resourceAsInput/#kotlin.String/PointingToDeclaration/kbods-commons/org.kbods.utils/resource-as-input.html
+$dokka.location:org.kbods.utils//resourceAsString/#kotlin.String/PointingToDeclaration/kbods-commons/org.kbods.utils/resource-as-string.html
+$dokka.location:org.kbods.utils//resourceExists/#kotlin.String/PointingToDeclaration/kbods-commons/org.kbods.utils/resource-exists.html
+$dokka.location:org.kbods.utils//safeDouble/com.beust.klaxon.JsonObject#kotlin.String/PointingToDeclaration/kbods-commons/org.kbods.utils/safe-double.html
+$dokka.location:org.kbods.utils//text/okhttp3.Response#/PointingToDeclaration/kbods-commons/org.kbods.utils/text.html
+$dokka.location:org.kbods.utils//unzip/java.io.File#java.io.File#java.nio.charset.Charset/PointingToDeclaration/kbods-commons/org.kbods.utils/unzip.html
+$dokka.location:org.kbods.utils//unzip/java.io.InputStream#java.io.File#java.nio.charset.Charset/PointingToDeclaration/kbods-commons/org.kbods.utils/unzip.html
+$dokka.location:org.kbods.utils//writeTo/okhttp3.Response#java.io.File/PointingToDeclaration/kbods-commons/org.kbods.utils/write-to.html
+$dokka.location:org.kbods.utils//writeTo/okhttp3.Response#java.io.OutputStream/PointingToDeclaration/kbods-commons/org.kbods.utils/write-to.html
+$dokka.location:org.kbods.utils/HttpResponseException///PointingToDeclaration/kbods-commons/org.kbods.utils/-http-response-exception/index.html
+$dokka.location:org.kbods.utils/HttpResponseException/HttpResponseException/#kotlin.String#kotlin.Int#kotlin.String/PointingToDeclaration/kbods-commons/org.kbods.utils/-http-response-exception/-http-response-exception.html
+$dokka.location:org.kbods.utils/HttpResponseException/HttpResponseException/#okhttp3.Response/PointingToDeclaration/kbods-commons/org.kbods.utils/-http-response-exception/-http-response-exception.html
+$dokka.location:org.kbods.utils/TempDir.Companion///PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/-companion/index.html
+$dokka.location:org.kbods.utils/TempDir///PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/index.html
+$dokka.location:org.kbods.utils/TempDir/TempDir/#/PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/-temp-dir.html
+$dokka.location:org.kbods.utils/TempDir/close/#/PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/close.html
+$dokka.location:org.kbods.utils/TempDir/newDirectory/#/PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/new-directory.html
+$dokka.location:org.kbods.utils/TempDir/newFile/#/PointingToDeclaration/kbods-commons/org.kbods.utils/-temp-dir/new-file.html
+org.kbods.utils
+

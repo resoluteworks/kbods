@@ -1,0 +1,9 @@
+rootProject.name = 'kbods'
+
+include 'kbods-commons'
+include 'kbods-read'
+include 'kbods-elasticsearch'
+include 'kbods-mongo'
+include 'kbods-rdf'
+
+

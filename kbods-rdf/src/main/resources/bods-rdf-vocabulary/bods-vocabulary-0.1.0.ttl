@@ -1,0 +1,127 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix bods: <http://bods.openownership.org/vocabulary/> .
+@prefix bods-res: <http://bods.openownership.org/resource/> .
+@prefix ch: <http://data.companieshouse.gov.uk/doc/company/> .
+
+bods:Party a rdfs:Class;
+  owl:equivalentClass foaf:Agent .
+
+bods:Person a rdfs:Class;
+  rdfs:subClassOf bods:Party;
+  owl:equivalentClass foaf:Person .
+
+bods:Entity a rdfs:Class;
+  rdfs:subClassOf bods:Party .
+
+bods:personType a rdf:Property;
+  rdfs:domain bods:Person;
+  rdfs:range rdfs:Literal .
+
+bods:OwnershipCtrlStatement a rdfs:Class .
+
+bods:hasInterestedParty a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range bods:Party .
+
+bods:isInterestedPartyOf a rdf:Property;
+  owl:inverseOf bods:hasInterestedParty .
+
+bods:hasSubject a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range bods:Entity .
+
+bods:isSubjectOf a rdf:Property;
+  owl:inverseOf bods:hasSubject .
+
+bods:jurisdictionCode a rdf:Property;
+  rdfs:domain bods:Entity;
+  rdfs:range rdfs:Literal .
+
+bods:statesInterest a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range bods:Interest .
+
+bods:statedBy a rdf:Property;
+  owl:inverseOf bods:statesInterest .
+
+bods:OwnershipCtrlStatementId a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range rdfs:Literal .
+
+bods:OwnershipCtrlStatementDate a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range xsd:Date .
+
+bods:sourceType a rdf:Property;
+  rdfs:domain bods:OwnershipCtrlStatement;
+  rdfs:range rdfs:Literal .
+
+bods:Interest a rdfs:Class .
+
+bods:interestType a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range rdfs:Literal .
+
+bods:startDate a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range xsd:Date .
+
+bods:endDate a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range xsd:Date .
+
+bods:interestDetails a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range rdfs:Literal .
+
+bods:sharesExact a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range rdfs:Literal .
+
+bods:sharesMin a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range rdfs:Literal .
+
+bods:sharesMax a rdf:Property;
+  rdfs:domain bods:Interest;
+  rdfs:range rdfs:Literal .
+
+bods:ownsOrControls a rdf:Property;
+  rdfs:domain bods:Party;
+  rdfs:range bods:Entity;
+  rdfs:label "Ownership or control in an entity" .
+
+bods:isOwnedOrControlledBy a rdf:Property;
+  owl:inverseOf bods:ownsOrControls;
+  rdfs:domain bods:Entity;
+  rdfs:range bods:Party;
+  rdfs:label "Party with ownership or control over this entity" .
+
+bods:RegisteredEntity a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "Registered Entity";
+  rdfs:comment "Any legal entity created through an act of official registration. In most cases, registered entities will have an official issued identifier." .
+
+bods:LegalEntity a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "Legal entity";
+  rdfs:comment "A body with distinct legal personality, such as a government departments or international institutions, but which is not otherwise uniquely identified in some official register." .
+
+bods:Arrangement a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "Arrangement";
+  rdfs:comment "An artificial entity, created by agreements, contracts or other processes." .
+
+bods:AnonymousEntity a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "Anonymous entity";
+  rdfs:comment "An entity that has been identified, but for which no identifying information is being published." .
+
+bods:UnknownEntity a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "Unknown entity";
+  rdfs:comment "An entity that has not been identified." .

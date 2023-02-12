@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(":kbods-commons")
+    implementation project(":kbods-read")
+    implementation "org.mongodb:mongodb-driver-sync:4.8.2"
+
+    testImplementation "org.testcontainers:mongodb:1.17.6"
+}

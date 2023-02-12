@@ -1,0 +1,13 @@
+PREFIX owl:      <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf:     <http://xmlns.com/foaf/0.1/>
+PREFIX bods:     <http://bods.openownership.org/vocabulary/>
+PREFIX bods-res: <http://bods.openownership.org/resource/>
+
+SELECT ?name
+WHERE {
+    ?s bods:ownsOrControls bods-res:openownership-register-8214028453689704336 .
+    ?s rdf:type bods:Person .
+    ?s foaf:name ?name .
+}

@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(":kbods-commons")
+    implementation "com.squareup.okhttp3:okhttp:4.10.0"
+    implementation "commons-io:commons-io:2.11.0"
+}

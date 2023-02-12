@@ -1,0 +1,45 @@
+plugins {
+    id "application"
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'it.unibz.inf.ontop:ontop-rdf4j-config-sql:4.2.2'
+        force 'it.unibz.inf.ontop:ontop-ontology-owlapi:4.2.2'
+        force 'it.unibz.inf.ontop:ontop-system-sql-owlapi:4.2.2'
+    }
+}
+
+dependencies {
+    implementation project(":kbods-commons")
+    implementation project(":kbods-read")
+
+    implementation "ch.qos.logback:logback-classic:1.4.5"
+    implementation "com.github.ajalt:clikt:2.8.0"
+    implementation "com.squareup.okhttp3:okhttp:4.10.0"
+    implementation "org.apache.commons:commons-csv:1.9.0"
+    implementation "org.eclipse.rdf4j:rdf4j-rio-api:4.2.2"
+    implementation "org.eclipse.rdf4j:rdf4j-runtime:4.2.2"
+    implementation "org.slf4j:slf4j-api:1.7.36"
+
+    testImplementation "com.ontotext.graphdb:graphdb-runtime:10.1.2"
+}
+
+application {
+    mainClass.set("org.kbods.rdf.BodsRdfApp")
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.kbods.rdf.BodsRdfApp'
+    }
+}
+
+shadowJar {
+    mergeServiceFiles()
+    zip64 true
+    manifest {
+        attributes('Main-Class': 'org.kbods.rdf.BodsRdfApp')
+    }
+}
