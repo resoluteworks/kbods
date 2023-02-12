@@ -108,3 +108,23 @@ BodsDownload.forUrl(url).readStatements { bodsStatement ->
     println(bodsStatement.jsonString)
 }
 ```
+
+## Advanced usage
+### Import the register in both Elasticsearch and RDF repository
+[kbods-rdf](kbods-rdf) doesn't produce a one-to-one mapping for all BODS schema definitions and lacks certain details,
+as the focus is on capturing relationships between entities. Because of this, there are situations where the RDF storage
+is used exclusively for graph-based queries, while the statements are de-referenced from a primary database.
+
+Below is a very crude example on how to import the BODS register in both an Elasticsearch store and an RDF repository.
+
+```kotlin
+val repository = repositoryManager.getRepository("bods-rdf")
+repository.connection.use { connection ->
+    BodsDownload.latest().useStatementSequence { sequence ->
+        sequence.chunked(1000).forEach { batch ->
+            esClient.writeBodsStatements(batch, "myindex")
+            connection.add(batch.toRdf())
+        }
+    }
+}
+```
