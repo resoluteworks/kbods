@@ -111,8 +111,8 @@ BodsDownload.forUrl(url).readStatements { bodsStatement ->
 
 ## Advanced usage
 ### Import the register in Elasticsearch and RDF repository
-[kbods-rdf](kbods-rdf) doesn't produce a one-to-one mapping for all BODS schema definitions and lacks certain details,
-as the focus is on capturing relationships between entities. Because of this, there are situations where the RDF storage
+The focus for [kbods-rdf](kbods-rdf) is to capture relationship between entities and so there are BODS
+schema definitions which we don't map to RDF (yet). Because of this, there are situations where the RDF storage
 is used exclusively for graph-based queries, while the statements are de-referenced from a primary database.
 
 Below is a very crude example on how to import the BODS register in a Elasticsearch and an RDF repository in the same read
