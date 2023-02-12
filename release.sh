@@ -6,7 +6,7 @@ git tag -l | xargs git tag -d
 git fetch --tags
 
 VERSION=`cat version.properties | grep "version" | awk -F' *= *' '{print $2}'`
-echo "New version is $VERSION"
+echo "Version is $VERSION"
 
 rm -rf docs/dokka
 ./gradlew clean dokkaHtml
@@ -18,7 +18,7 @@ git push
 git tag "${VERSION}"
 git push --tags --force
 
-gh release create "${VERSION}" --verify-tag --title "kbods ${VERSION}" --notes "BODS RDF Version ${VERSION}"
+gh release create "${VERSION}" --verify-tag --title "kbods ${VERSION}" --notes "Version ${VERSION}"
 
 echo "Finished building version $VERSION"
 
