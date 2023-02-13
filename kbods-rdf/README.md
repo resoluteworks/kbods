@@ -90,7 +90,7 @@ BodsVocabulary.write(repository)
 
 #### Fetch the fat JAR for the latest version
 ```shell
-KBODS_VERSION="0.8.3"
+KBODS_VERSION="0.8.4"
 BODS_RDF_JAR="https://resoluteworks-maven.s3-eu-west-1.amazonaws.com/org/kbods/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
 curl $BODS_RDF_JAR > bods-rdf.jar
 ```
