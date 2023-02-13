@@ -11,7 +11,7 @@ schema version.
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
 
 ## Downloads
-Last exported: 09/02/2023. 
+Last exported 13/02/2023. 
 
 **[bods-rdf-statements.ttl](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-statements.ttl.gz)** (1.3GB)  
 The Open Ownership register data in RDF format, including the [0.1.0](https://standard.openownership.org/en/0.1.0/) vocabulary.
