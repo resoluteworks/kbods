@@ -32,8 +32,7 @@ repositories {
 }
 ```
 
-The libraries all have `kbods-read` as a transitive dependency, but otherwise they're largely independent and can be used
-separately or together in the same project.
+The libraries all have `kbods-read` as a transitive dependency, but otherwise they and can be used separately or together in the same project.
 
 ```shell
 
