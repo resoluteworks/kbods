@@ -15,3 +15,9 @@ java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
 
 java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
     convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf-statements.ttl" --plugin="uk-company-refs"
+
+for file in "$OUTPUT_DIR"/*
+do
+  echo "Compressing $file"
+  gzip $file
+done
