@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.kbods:kbods-rdf:0.10.0'
+    implementation 'org.kbods:kbods-rdf:0.8.4'
 }
 ```
 
