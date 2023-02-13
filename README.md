@@ -48,6 +48,9 @@ dependencies {
 Since the operations in these libraries are mostly stateless, the design is based on Kotlin extension functions. This
 hopefully makes the code more readable and enables a fluent integration.  
 
+### kbods-rdf
+Please refer to the [module's](kbods-rdf) README for complete details.
+
 ### kbods-elasticsearch
 ```kotlin
 // Download, unzip and import the latest Open Ownership register to Elasticsearch
@@ -75,9 +78,6 @@ BodsDownload.latest().import(
 val jsonlFile = File("/path/to/statemenets.jsonl")
 collection.importBodsStatements(jsonlFile, 100)
 ```
-
-### kbods-rdf
-Please refer to the [module's](kbods-rdf) README for complete details.
 
 ### kbods-read
 This is the base module for reading and loading a BODS register and the rest of the libraries
