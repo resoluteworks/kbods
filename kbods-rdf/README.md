@@ -11,13 +11,13 @@ schema version.
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
 
 ## Downloads
-Last exported 13/02/2023. 
+Last exported 13/02/2023.
+| Dataset | Turtle | BRF |
+| --- | --- | --- |
+| Open Ownership register data in RDF format | [bods-rdf.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.ttl.gz) | [bods-rdf.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.brf.gz)|
+| UK Companies references <sup>1</sup> | [bods-rdf-uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-uk-company-refs.ttl.gz) | [bods-rdf-company-refs.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-company-refs.brf.gz)
 
-**[bods-rdf-statements.ttl](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-statements.ttl.gz)** (1.3GB)  
-The Open Ownership register data in RDF format, including the [0.1.0](https://standard.openownership.org/en/0.1.0/) vocabulary.
-
-**[bods-rdf-addon.uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-addon.uk-company-refs.ttl.gz)** (125MB)  
-Maps BODS entity statements for UK companies to the coresponding [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris). Useful for data linking between Open Ownership and other sources.
+<sup>1</sup> Maps BODS entity statements for UK companies to the coresponding [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris) using `owl:sameAs`. Useful for data linking between Open Ownership and other sources.
 
 ## Resources
 * [BODS RDF background](https://world.hey.com/cos/an-rdf-vocabulary-for-beneficial-ownership-data-7a762fe1)
