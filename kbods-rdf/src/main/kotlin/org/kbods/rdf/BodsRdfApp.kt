@@ -9,9 +9,8 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.multiple
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.required
-import org.eclipse.rdf4j.rio.RDFFormat
-import org.kbods.read.BodsDownload
 import org.kbods.rdf.plugins.BodsConvertPlugin
+import org.kbods.read.BodsDownload
 import org.slf4j.LoggerFactory
 import java.io.File
 
@@ -53,7 +52,7 @@ class Convert : CliktCommand() {
 
     override fun run() {
         File(input)
-            .convert(File(commonOptions.output), RDFFormat.TURTLE, commonOptions.config, !commonOptions.excludeVocabulary)
+            .convert(File(commonOptions.output), commonOptions.config, !commonOptions.excludeVocabulary)
     }
 }
 
@@ -61,7 +60,7 @@ class ConvertLatest : CliktCommand() {
     private val commonOptions by CommonConvertOptions()
     override fun run() {
         BodsDownload.latest()
-            .convert(File(commonOptions.output), RDFFormat.TURTLE, commonOptions.config, !commonOptions.excludeVocabulary)
+            .convert(File(commonOptions.output), commonOptions.config, !commonOptions.excludeVocabulary)
     }
 }
 

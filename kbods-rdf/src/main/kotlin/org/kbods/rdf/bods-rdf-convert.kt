@@ -1,6 +1,7 @@
 package org.kbods.rdf
 
 import org.eclipse.rdf4j.rio.RDFFormat
+import org.eclipse.rdf4j.rio.RDFWriterRegistry
 import org.eclipse.rdf4j.rio.Rio
 import org.kbods.rdf.plugins.PluginRunner
 import org.kbods.rdf.utils.write
@@ -12,33 +13,31 @@ import java.io.File
 
 fun BodsDownload.convert(
     outputFile: File,
-    format: RDFFormat,
     config: BodsRdfConfig = BodsRdfConfig(),
     includeVocabulary: Boolean = true
 ) {
     this.useStatementSequence { sequence ->
-        doConvert(sequence, outputFile, format, config, includeVocabulary)
+        doConvert(sequence, outputFile, config, includeVocabulary)
     }
 }
 
 fun File.convert(
     outputFile: File,
-    format: RDFFormat,
     config: BodsRdfConfig = BodsRdfConfig(),
     includeVocabulary: Boolean = true
 ) {
     this.useBodsStatementsSequence { sequence ->
-        doConvert(sequence, outputFile, format, config, includeVocabulary)
+        doConvert(sequence, outputFile, config, includeVocabulary)
     }
 }
 
 private fun doConvert(
     sequence: Sequence<BodsStatement>,
     outputFile: File,
-    format: RDFFormat,
     config: BodsRdfConfig = BodsRdfConfig(),
     includeVocabulary: Boolean = true
 ) {
+    val format = RDFFormat.matchFileName(outputFile.name, RDFWriterRegistry.getInstance().keys).get()
     outputFile.outputStream().use { outputStream ->
         PluginRunner.file(config, outputFile.parentFile, format).use { pluginRunner ->
             val rdfWriter = Rio.createWriter(format, outputStream)
@@ -58,3 +57,4 @@ private fun doConvert(
         }
     }
 }
+

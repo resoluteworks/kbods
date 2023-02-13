@@ -14,7 +14,7 @@ object BodsRdf {
     const val NAMESPACE = "http://bods.openownership.org/vocabulary/"
     const val PREFIX = "bods"
     const val RES_NAMESPACE = "http://bods.openownership.org/resource/"
-    const val RES_PREFIX = "bods-res"
+    const val RES_PREFIX = "bodsr"
 
     fun def(value: String): IRI = valueFactory.createIRI(NAMESPACE, value)
     fun resource(value: String): IRI = valueFactory.createIRI(RES_NAMESPACE, value)
