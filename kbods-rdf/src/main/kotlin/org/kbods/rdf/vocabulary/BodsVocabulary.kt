@@ -13,7 +13,13 @@ import org.eclipse.rdf4j.rio.Rio
 import org.eclipse.rdf4j.rio.helpers.StatementCollector
 import org.kbods.rdf.BodsRdf
 import org.kbods.rdf.utils.resourceAsRdfModel
-import org.kbods.utils.*
+import org.kbods.utils.TempDir
+import org.kbods.utils.checkOk
+import org.kbods.utils.get
+import org.kbods.utils.httpClient
+import org.kbods.utils.resourceAsInput
+import org.kbods.utils.resourceExists
+import org.kbods.utils.unzip
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.OutputStream

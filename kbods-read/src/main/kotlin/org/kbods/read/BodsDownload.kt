@@ -2,6 +2,7 @@ package org.kbods.read
 
 import org.kbods.utils.TempDir
 import org.kbods.utils.checkOk
+import org.kbods.utils.currentDirectory
 import org.kbods.utils.get
 import org.kbods.utils.grouped
 import org.kbods.utils.gunzip
@@ -10,7 +11,10 @@ import org.kbods.utils.writeTo
 import org.slf4j.LoggerFactory
 import java.io.File
 
-class BodsDownload(val bodsGzipUrl: String) {
+class BodsDownload(
+    val bodsGzipUrl: String,
+    val workingDirectory: File = currentDirectory()
+) {
 
     private val httpClient = httpClient()
 
@@ -23,7 +27,7 @@ class BodsDownload(val bodsGzipUrl: String) {
     }
 
     fun useStatementSequence(consumer: (Sequence<BodsStatement>) -> Unit) {
-        TempDir().use { tempDir ->
+        TempDir(workingDirectory).use { tempDir ->
             val jsonlFile = downloadAndUnzip(bodsGzipUrl, tempDir)
             jsonlFile.useBodsStatementsSequence { sequence ->
                 consumer(sequence)

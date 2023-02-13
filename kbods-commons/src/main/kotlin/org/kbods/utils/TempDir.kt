@@ -7,9 +7,11 @@ import java.io.File
 import java.io.IOException
 import java.util.*
 
-class TempDir : Closeable {
+class TempDir(
+    val workingDir: File = currentDirectory()
+) : Closeable {
 
-    private val root = createRootDir()
+    private val root = createRootDir(workingDir)
 
     fun newFile(): File {
         return File(root, uuid())
@@ -31,13 +33,16 @@ class TempDir : Closeable {
             log.warn("Could not delete temporary directory $root")
             false
         }
+
         if (!deleted) {
             log.warn("Could not delete temporary directory $root")
+        } else {
+            log.info("Deleted temporary directory $root")
         }
     }
 
-    private fun createRootDir(): File {
-        val tempFile = File(JAVA_TEMP_DIR, uuid())
+    private fun createRootDir(workingDirectory: File): File {
+        val tempFile = File(workingDirectory, uuid())
         if (!tempFile.mkdirs()) {
             throw IllegalStateException("Could not create temp dir $tempFile")
         }
@@ -47,7 +52,6 @@ class TempDir : Closeable {
     private fun uuid() = UUID.randomUUID().toString()
 
     companion object {
-        private val JAVA_TEMP_DIR = System.getProperty("java.io.tmpdir")
         private val log = LoggerFactory.getLogger(TempDir::class.java)
     }
 }

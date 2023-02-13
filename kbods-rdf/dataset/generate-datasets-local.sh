@@ -12,4 +12,5 @@ mkdir -p $OUTPUT_DIR
 java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
     convert \
     --input=/Users/cosmin/temp/statements.jsonl \
-    --output="$OUTPUT_DIR/bods-rdf-statements.ttl"
+    --output="$OUTPUT_DIR/bods-rdf-statements.ttl" \
+    --plugin="uk-company-refs"
