@@ -11,7 +11,7 @@ rm -rf $OUTPUT_DIR
 mkdir -p $OUTPUT_DIR
 
 java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
-    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf-statements.ttl" --plugin="uk-company-refs"
+    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf-statements.brf" --plugin="uk-company-refs"
 
 java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
-    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf-statements.brf" --plugin="uk-company-refs"
+    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf-statements.ttl" --plugin="uk-company-refs"
