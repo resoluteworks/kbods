@@ -12,10 +12,11 @@ $dokka.location:org.kbods.read/BodsDownload.Companion/URL_LATEST/#/PointingToDec
 $dokka.location:org.kbods.read/BodsDownload.Companion/forUrl/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/for-url.html
 $dokka.location:org.kbods.read/BodsDownload.Companion/latest/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/latest.html
 $dokka.location:org.kbods.read/BodsDownload///PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/index.html
-$dokka.location:org.kbods.read/BodsDownload/BodsDownload/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-bods-download.html
+$dokka.location:org.kbods.read/BodsDownload/BodsDownload/#kotlin.String#java.io.File/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-bods-download.html
 $dokka.location:org.kbods.read/BodsDownload/bodsGzipUrl/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/bods-gzip-url.html
 $dokka.location:org.kbods.read/BodsDownload/readStatements/#kotlin.Function1[org.kbods.read.BodsStatement,kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/read-statements.html
 $dokka.location:org.kbods.read/BodsDownload/useStatementSequence/#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/use-statement-sequence.html
+$dokka.location:org.kbods.read/BodsDownload/workingDirectory/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/working-directory.html
 $dokka.location:org.kbods.read/BodsStatement.Companion///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-companion/index.html
 $dokka.location:org.kbods.read/BodsStatement///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/index.html
 $dokka.location:org.kbods.read/BodsStatement/BodsStatement/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-bods-statement.html
@@ -30,6 +31,7 @@ $dokka.location:org.kbods.read/BodsStatement/json/#/PointingToDeclaration/kbods
 $dokka.location:org.kbods.read/BodsStatement/jsonString/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/json-string.html
 $dokka.location:org.kbods.read/BodsStatement/jurisdictionCode/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/jurisdiction-code.html
 $dokka.location:org.kbods.read/BodsStatement/name/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/name.html
+$dokka.location:org.kbods.read/BodsStatement/nationalities/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/nationalities.html
 $dokka.location:org.kbods.read/BodsStatement/personType/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/person-type.html
 $dokka.location:org.kbods.read/BodsStatement/sourceType/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/source-type.html
 $dokka.location:org.kbods.read/BodsStatement/statementDate/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/statement-date.html
