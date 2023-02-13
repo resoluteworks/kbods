@@ -1,6 +1,6 @@
 # kbods-rdf
 
-This is a JVM library (written in Kotlin) for processing [Open Ownership](https://www.openownership.org/) BODS data 
+This is a Kotlin library for processing [Open Ownership](https://www.openownership.org/) BODS data 
 as [RDF](https://www.w3.org/RDF/). It is an implementation of the [BODS RDF proposal](https://docs.google.com/document/d/1vej-UkK7QtmfKrmU6aD15vceIzJDsCv1jbHCJWgn9hs)
 and provides an RDF vocabulary for BODS schema (0.1.0/0.2.0/0.3.0).
 
