@@ -21,6 +21,10 @@ bods:personType a rdf:Property;
   rdfs:domain bods:Person;
   rdfs:range rdfs:Literal .
 
+bods:nationalityCode a rdf:Property;
+  rdfs:domain bods:Person;
+  rdfs:range rdfs:Literal .
+
 bods:OwnershipCtrlStatement a rdfs:Class .
 
 bods:hasInterestedParty a rdf:Property;
@@ -109,7 +113,7 @@ bods:RegisteredEntity a rdfs:Class;
 bods:LegalEntity a rdfs:Class;
   rdfs:subClassOf bods:Entity;
   rdfs:label "Legal entity";
-  rdfs:comment "A body with distinct legal personality, such as a government departments or international institutions, but which is not otherwise uniquely identified in some official register." .
+  rdfs:comment "A body with distinct legal personality, such as an international institution or statutory corporation, but which is not otherwise uniquely identified in some official register." .
 
 bods:Arrangement a rdfs:Class;
   rdfs:subClassOf bods:Entity;
@@ -125,3 +129,13 @@ bods:UnknownEntity a rdfs:Class;
   rdfs:subClassOf bods:Entity;
   rdfs:label "Unknown entity";
   rdfs:comment "An entity that has not been identified." .
+
+bods:State a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "State";
+  rdfs:comment "A country, nation or community with legal sovereignty within a territory." .
+
+bods:StateBody a rdfs:Class;
+  rdfs:subClassOf bods:Entity;
+  rdfs:label "State body";
+  rdfs:comment "A core administrative or legislative unit within a state's apparatus." .

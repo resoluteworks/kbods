@@ -21,6 +21,10 @@ bods:personType a rdf:Property;
   rdfs:domain bods:Person;
   rdfs:range rdfs:Literal .
 
+bods:nationalityCode a rdf:Property;
+  rdfs:domain bods:Person;
+  rdfs:range rdfs:Literal .
+
 bods:OwnershipCtrlStatement a rdfs:Class .
 
 bods:hasInterestedParty a rdf:Property;

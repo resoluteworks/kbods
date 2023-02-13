@@ -5,14 +5,14 @@ import org.eclipse.rdf4j.model.IRI
 import org.eclipse.rdf4j.model.Statement
 import org.kbods.rdf.BodsRdf
 import org.kbods.rdf.BodsRdfConfig
-import org.kbods.read.BodsStatement
-import org.kbods.read.interestEndDate
-import org.kbods.read.interestStartDate
-import org.kbods.utils.safeDouble
 import org.kbods.rdf.utils.add
 import org.kbods.rdf.utils.literal
 import org.kbods.rdf.utils.literalDate
 import org.kbods.rdf.utils.literalDecimal
+import org.kbods.read.BodsStatement
+import org.kbods.read.interestEndDate
+import org.kbods.read.interestStartDate
+import org.kbods.utils.safeDouble
 
 internal fun interestsToRdf(
     bodsStatement: BodsStatement,
@@ -23,14 +23,12 @@ internal fun interestsToRdf(
     val statements = mutableListOf<Statement>()
 
     statements.add(interestStatementObject, BodsRdf.PROP_STATEMENT_ID, bodsStatement.id.literal(), config.graph)
-    val statementDate = bodsStatement.statementDate
-    if (statementDate != null) {
-        statements.add(interestStatementObject, BodsRdf.PROP_STATEMENT_DATE, statementDate.literalDate(), config.graph)
+    if (bodsStatement.statementDate != null) {
+        statements.add(interestStatementObject, BodsRdf.PROP_STATEMENT_DATE, bodsStatement.statementDate!!.literalDate(), config.graph)
     }
-    try {
+
+    if (bodsStatement.sourceType != null) {
         statements.add(interestStatementObject, BodsRdf.PROP_STATEMENT_SOURCE_TYPE, bodsStatement.sourceType!!.literal(), config.graph)
-    } catch (t: Throwable) {
-        println(bodsStatement.jsonString)
     }
 
     bodsStatement.interests

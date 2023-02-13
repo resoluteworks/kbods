@@ -61,6 +61,9 @@ private fun BodsStatement.processPerson(config: BodsRdfConfig): List<Statement> 
     if (!config.relationshipsOnly) {
         statements.add(statementRes, FOAF.NAME, this.name.literal(), config.graph)
         statements.add(statementRes, BodsRdf.PROP_PERSON_TYPE, this.personType!!.literal(), config.graph)
+        this.nationalities.forEach { nationalityCode ->
+            statements.add(statementRes, BodsRdf.PROP_NATIONALITY_CODE, nationalityCode.literal(), config.graph)
+        }
     }
     return statements
 }
@@ -69,7 +72,7 @@ private fun BodsStatement.processOwnershipCtrlStatement(config: BodsRdfConfig, i
     val statements = mutableListOf<Statement>()
 
     val totalInterests = interests.size
-    val expiredInterests = interests.count { it.interestEndDate() != null } ?: 0
+    val expiredInterests = interests.count { it.interestEndDate() != null }
     val nonExpiredInterests = totalInterests - expiredInterests
 
     // We only process this interest statement if

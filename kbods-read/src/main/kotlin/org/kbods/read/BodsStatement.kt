@@ -4,7 +4,7 @@ import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Klaxon
 import java.io.StringReader
 
-data class BodsStatement(val jsonString: String) {
+class BodsStatement(val jsonString: String) {
 
     val json = jsonParser.parseJsonObject(StringReader(jsonString))
     val id = json.string("statementID")!!
@@ -33,6 +33,7 @@ data class BodsStatement(val jsonString: String) {
     val jurisdictionCode: String? = json.obj("incorporatedInJurisdiction")?.string("code")
     val statementDate: String? = json.string("statementDate")
     val personType: String? = json.string("personType")
+    val nationalities: List<String> = json.array<JsonObject>("nationalities")?.map { it.string("code")!! } ?: emptyList()
     val interests: List<JsonObject> = json.array<JsonObject>("interests")?.toList() ?: emptyList()
 
     val interestedPartyId: String?

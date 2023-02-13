@@ -25,6 +25,8 @@ object BodsRdf {
     val TYPE_ENTITY = def("Entity")
     val TYPE_OWNERSHIP_CTRL_STATEMENT = def("OwnershipCtrlStatement")
 
+    val PROP_NATIONALITY_CODE = def("nationalityCode")
+
     val PROP_INTERESTED_PARTY = def("hasInterestedParty")
     val PROP_SUBJECT = def("hasSubject")
     val PROP_STATES_INTEREST = def("statesInterest")

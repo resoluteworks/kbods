@@ -60,7 +60,7 @@ object BodsVocabulary {
     }
 
     private fun loadVocabulary(schemaVersion: BodsSchemaVersion): Model {
-        val vocabularyResource = "bods-rdf-vocabulary/bods-vocabulary-${schemaVersion.versionString}.ttl"
+        val vocabularyResource = "vocabulary/bods-vocabulary-${schemaVersion.versionString}.ttl"
 
         if (resourceExists(vocabularyResource)) {
             return resourceAsRdfModel(vocabularyResource)

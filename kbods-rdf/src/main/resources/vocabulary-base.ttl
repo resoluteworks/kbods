@@ -26,6 +26,11 @@ bods:personType
     rdfs:domain bods:Person ;
     rdfs:range  rdfs:Literal .
 
+bods:nationalityCode
+    rdf:type    rdf:Property ;
+    rdfs:domain bods:Person ;
+    rdfs:range  rdfs:Literal .
+
 # Ownership or control statement and related properties
 bods:OwnershipCtrlStatement
     rdf:type rdfs:Class .
