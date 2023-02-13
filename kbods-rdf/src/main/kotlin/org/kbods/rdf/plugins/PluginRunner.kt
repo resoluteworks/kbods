@@ -62,7 +62,7 @@ class FilePluginRunner(
     init {
         config.plugins.values.forEach { plugins ->
             plugins.forEach { plugin ->
-                val fileName = "bods-rdf-addon.${plugin.name}." + rdfFormat.fileExtensions.first()
+                val fileName = "bods-rdf-${plugin.name}." + rdfFormat.fileExtensions.first()
                 contexts[plugin.name] = FilePluginContext.create(outputDir, fileName, rdfFormat)
             }
         }
