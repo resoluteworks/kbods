@@ -20,14 +20,14 @@ Last exported 13/02/2023.
 <sup>1</sup> Maps BODS statements for UK entities to the coresponding [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris) using `owl:sameAs`. Useful for data linking between Open Ownership and other sources.
 
 ## Resources
-* [BODS RDF background](https://world.hey.com/cos/an-rdf-vocabulary-for-beneficial-ownership-data-7a762fe1)
-* [BODS RDF Proposal](https://docs.google.com/document/d/1vej-UkK7QtmfKrmU6aD15vceIzJDsCv1jbHCJWgn9hs)
-* [API Docs](https://cosmin-marginean.github.io/bods-rdf/dokka)
-* [Open Ownership Tech Showcase - BODS RDF in Risk & Compliance](https://github.com/cosmin-marginean/bods-rdf/blob/main/docs/OO-TechShowcase-May2022.pdf)
 * RDF Vocabulary:
 [0.1.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.1.0.ttl),
 [0.2.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.2.0.ttl),
 [0.3.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.3.0.ttl)
+* [BODS RDF background](https://world.hey.com/cos/an-rdf-vocabulary-for-beneficial-ownership-data-7a762fe1)
+* [BODS RDF Proposal](https://docs.google.com/document/d/1vej-UkK7QtmfKrmU6aD15vceIzJDsCv1jbHCJWgn9hs)
+* [API Docs](https://cosmin-marginean.github.io/bods-rdf/dokka)
+* [Open Ownership Tech Showcase - BODS RDF in Risk & Compliance](https://github.com/cosmin-marginean/bods-rdf/blob/main/docs/OO-TechShowcase-May2022.pdf)
 
 ## JVM Usage
 #### Gradle dependency
