@@ -25,9 +25,9 @@ Last exported 13/02/2023.
 * [API Docs](https://cosmin-marginean.github.io/bods-rdf/dokka)
 * [Open Ownership Tech Showcase - BODS RDF in Risk & Compliance](https://github.com/cosmin-marginean/bods-rdf/blob/main/docs/OO-TechShowcase-May2022.pdf)
 * RDF Vocabulary:
-[0.1.0](https://github.com/cosmin-marginean/bods-rdf/blob/main/src/main/resources/vocabulary/bods-vocabulary-0.1.0.ttl),
-[0.2.0](https://github.com/cosmin-marginean/bods-rdf/blob/main/src/main/resources/vocabulary/bods-vocabulary-0.2.0.ttl),
-[0.3.0](https://github.com/cosmin-marginean/bods-rdf/blob/main/src/main/resources/vocabulary/bods-vocabulary-0.3.0.ttl)
+[0.1.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.1.0.ttl),
+[0.2.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.2.0.ttl),
+[0.3.0](https://github.com/cosmin-marginean/kbods/blob/main/kbods-rdf/src/main/resources/vocabulary/bods-vocabulary-0.3.0.ttl)
 
 ## JVM Usage
 #### Gradle dependency
