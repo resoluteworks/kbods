@@ -21,12 +21,6 @@ data class BodsRdfConfig(
      * specified the statements will be imported in the default graph.
      */
     val graph: IRI? = null,
-
-    /**
-     * The JSON statements are processed in batches using `sequence.chunked(readBatchSize)`. This is to optimise
-     * the performance particularly when writing to an RDF connection.
-     */
-    val readBatchSize: Int = DEFAULT_STATEMENT_BATCH_SIZE
 ) {
 
     internal val plugins = mutableMapOf<BodsStatementType, MutableList<BodsConvertPlugin>>()

@@ -17,6 +17,14 @@ subprojects {
         mavenCentral()
     }
 
+    configurations.all {
+        resolutionStrategy {
+            force 'it.unibz.inf.ontop:ontop-rdf4j-config-sql:4.2.2'
+            force 'it.unibz.inf.ontop:ontop-ontology-owlapi:4.2.2'
+            force 'it.unibz.inf.ontop:ontop-system-sql-owlapi:4.2.2'
+        }
+    }
+
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"

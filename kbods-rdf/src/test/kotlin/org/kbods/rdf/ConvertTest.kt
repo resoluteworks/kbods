@@ -1,7 +1,7 @@
 package org.kbods.rdf
 
-import org.kbods.utils.resourceAsInput
 import org.kbods.RdfContainerTest
+import org.kbods.utils.resourceAsInput
 import org.testng.annotations.Test
 import kotlin.test.assertContentEquals
 
@@ -29,8 +29,7 @@ class ConvertTest : RdfContainerTest() {
         repository.connection.use { connection ->
             val config = BodsRdfConfig(
                 relationshipsOnly = true,
-                importExpiredInterests = false,
-                readBatchSize = 1000
+                importExpiredInterests = false
             )
             resourceAsInput("statements.jsonl").import(connection, config)
         }

@@ -4,10 +4,9 @@ import com.beust.klaxon.Klaxon
 import org.eclipse.rdf4j.model.IRI
 import org.eclipse.rdf4j.model.Statement
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory
-import org.kbods.rdf.BodsRdf
 import org.kbods.rdf.interest.sharesStatements
-import org.kbods.rdf.utils.literalDecimal
-import org.kbods.rdf.utils.statement
+import org.rdf4k.literalDecimal
+import org.rdf4k.statement
 import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
 import java.io.StringReader

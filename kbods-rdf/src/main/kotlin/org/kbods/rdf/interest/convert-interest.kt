@@ -2,17 +2,21 @@ package org.kbods.rdf.interest
 
 import com.beust.klaxon.JsonObject
 import org.eclipse.rdf4j.model.IRI
+import org.eclipse.rdf4j.model.Literal
 import org.eclipse.rdf4j.model.Statement
 import org.kbods.rdf.BodsRdf
 import org.kbods.rdf.BodsRdfConfig
-import org.kbods.rdf.utils.add
-import org.kbods.rdf.utils.literal
-import org.kbods.rdf.utils.literalDate
-import org.kbods.rdf.utils.literalDecimal
+import org.kbods.rdf.literalDate
 import org.kbods.read.BodsStatement
 import org.kbods.read.interestEndDate
 import org.kbods.read.interestStartDate
 import org.kbods.utils.safeDouble
+import org.rdf4k.add
+import org.rdf4k.iri
+import org.rdf4k.literal
+import org.rdf4k.literalDecimal
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 internal fun interestsToRdf(
     bodsStatement: BodsStatement,
@@ -33,7 +37,7 @@ internal fun interestsToRdf(
 
     bodsStatement.interests
         .forEachIndexed { index, interestJson ->
-            val interestObject = BodsRdf.resource("${bodsStatement.id}_$index")
+            val interestObject = BodsRdf.RESOURCE.iri("${bodsStatement.id}_$index")
             statements.add(interestObject, BodsRdf.PROP_INTEREST_TYPE, interestJson.string("type")!!.literal(), config.graph)
 
             val interestDetails = interestJson.string("details")

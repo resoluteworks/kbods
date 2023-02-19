@@ -1,14 +1,13 @@
 package org.kbods.rdf
 
-import org.eclipse.rdf4j.rio.RDFFormat
-import org.eclipse.rdf4j.rio.RDFWriterRegistry
-import org.eclipse.rdf4j.rio.Rio
 import org.kbods.rdf.plugins.PluginRunner
-import org.kbods.rdf.utils.write
 import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
 import org.kbods.read.useBodsStatementsSequence
+import org.rdf4k.fileRdfFormat
+import org.rdf4k.useRdfWriter
+import org.rdf4k.write
 import java.io.File
 
 fun BodsDownload.convert(
@@ -37,23 +36,17 @@ private fun doConvert(
     config: BodsRdfConfig = BodsRdfConfig(),
     includeVocabulary: Boolean = true
 ) {
-    val format = RDFFormat.matchFileName(outputFile.name, RDFWriterRegistry.getInstance().keys).get()
-    outputFile.outputStream().use { outputStream ->
+    val format = fileRdfFormat(outputFile.name)!!
+    outputFile.useRdfWriter(format, BodsRdf.REQUIRED_NAMESPACES) { rdfWriter ->
         PluginRunner.file(config, outputFile.parentFile, format).use { pluginRunner ->
-            val rdfWriter = Rio.createWriter(format, outputStream)
-            rdfWriter.startRDF()
-            BodsRdf.REQUIRED_NAMESPACES
-                .forEach { rdfWriter.handleNamespace(it.key, it.value) }
-
             if (includeVocabulary) {
                 BodsVocabulary.write(rdfWriter)
             }
-            sequence.chunked(config.readBatchSize).forEach { batch ->
-                val rdfStatements = batch.toRdf(config)
+            sequence.forEach { bodsStatement ->
+                val rdfStatements = bodsStatement.toRdf(config)
                 rdfWriter.write(rdfStatements)
-                pluginRunner.runPlugins(batch)
+                pluginRunner.runPlugins(bodsStatement)
             }
-            rdfWriter.endRDF()
         }
     }
 }

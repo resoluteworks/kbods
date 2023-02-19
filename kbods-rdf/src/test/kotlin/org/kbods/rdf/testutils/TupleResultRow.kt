@@ -44,7 +44,7 @@ data class TupleResultRow(
         return data.containsKey(key)
     }
 
-    fun isIri(key:String):Boolean {
+    fun isIri(key: String): Boolean {
         return data[key]!!.isIRI
     }
 

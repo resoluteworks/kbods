@@ -2,9 +2,9 @@ package org.kbods.rdf
 
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager
-import org.kbods.read.BodsDownload
 import org.kbods.rdf.vocabulary.BodsSchemaVersion
 import org.kbods.rdf.vocabulary.BodsVocabulary
+import org.kbods.read.BodsDownload
 import java.io.File
 
 class Examples {
@@ -27,8 +27,7 @@ class Examples {
             val config = BodsRdfConfig(
                 relationshipsOnly = true,
                 importExpiredInterests = false,
-                graph = SimpleValueFactory.getInstance().createIRI("https://mydomain.com", "mygraph"),
-                readBatchSize = 10_000
+                graph = SimpleValueFactory.getInstance().createIRI("https://mydomain.com", "mygraph")
             )
             BodsDownload.latest()
                 .import(connection, config)

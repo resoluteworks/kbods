@@ -12,7 +12,6 @@ import org.eclipse.rdf4j.rio.RDFWriter
 import org.eclipse.rdf4j.rio.Rio
 import org.eclipse.rdf4j.rio.helpers.StatementCollector
 import org.kbods.rdf.BodsRdf
-import org.kbods.rdf.utils.resourceAsRdfModel
 import org.kbods.utils.TempDir
 import org.kbods.utils.checkOk
 import org.kbods.utils.get
@@ -20,9 +19,10 @@ import org.kbods.utils.httpClient
 import org.kbods.utils.resourceAsInput
 import org.kbods.utils.resourceExists
 import org.kbods.utils.unzip
+import org.rdf4k.resourceToRdfModel
+import org.rdf4k.useRdfWriter
 import org.slf4j.LoggerFactory
 import java.io.File
-import java.io.OutputStream
 import java.io.StringReader
 
 object BodsVocabulary {
@@ -45,22 +45,12 @@ object BodsVocabulary {
     }
 
     fun write(outputFile: File, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
-        outputFile.outputStream().use { outputStream ->
-            write(outputStream, schemaVersion)
+        outputFile.useRdfWriter(RDFFormat.TURTLE, BodsRdf.REQUIRED_NAMESPACES) { rdfWriter ->
+            write(rdfWriter, schemaVersion)
         }
     }
 
-    fun write(outputStream: OutputStream, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
-        val writer = Rio.createWriter(RDFFormat.TURTLE, outputStream)
-        writer.startRDF()
-        write(writer, schemaVersion)
-        writer.endRDF()
-    }
-
     fun write(writer: RDFWriter, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
-        BodsRdf.REQUIRED_NAMESPACES
-            .forEach { writer.handleNamespace(it.key, it.value) }
-
         loadVocabulary(schemaVersion)
             .forEach { statement -> writer.handleStatement(statement) }
     }
@@ -69,7 +59,7 @@ object BodsVocabulary {
         val vocabularyResource = "vocabulary/bods-vocabulary-${schemaVersion.versionString}.ttl"
 
         if (resourceExists(vocabularyResource)) {
-            return resourceAsRdfModel(vocabularyResource)
+            return resourceToRdfModel(vocabularyResource)
 
         } else {
             TempDir().use { tempDir ->

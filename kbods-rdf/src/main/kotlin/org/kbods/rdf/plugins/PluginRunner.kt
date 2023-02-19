@@ -7,16 +7,12 @@ import org.eclipse.rdf4j.rio.RDFWriter
 import org.eclipse.rdf4j.rio.Rio
 import org.kbods.rdf.BodsRdf
 import org.kbods.rdf.BodsRdfConfig
-import org.kbods.rdf.utils.write
 import org.kbods.read.BodsStatement
+import org.rdf4k.write
 import java.io.File
 import java.io.OutputStream
 
 abstract class PluginRunner(val config: BodsRdfConfig) : AutoCloseable {
-
-    fun runPlugins(bodsStatements: List<BodsStatement>) {
-        bodsStatements.forEach { runPlugins(it) }
-    }
 
     fun runPlugins(bodsStatement: BodsStatement) {
         val statementType = bodsStatement.statementType
@@ -94,11 +90,9 @@ internal data class FilePluginContext(
         fun create(outputDir: File, fileName: String, rdfFormat: RDFFormat): FilePluginContext {
             val outputStream = File(outputDir, fileName).outputStream()
             val rdfWriter = Rio.createWriter(rdfFormat, outputStream)
-
             rdfWriter.startRDF()
             BodsRdf.REQUIRED_NAMESPACES
-                .forEach { rdfWriter.handleNamespace(it.key, it.value) }
-
+                .forEach { rdfWriter.handleNamespace(it.prefix, it.name) }
             return FilePluginContext(outputStream, rdfWriter, rdfFormat)
         }
     }

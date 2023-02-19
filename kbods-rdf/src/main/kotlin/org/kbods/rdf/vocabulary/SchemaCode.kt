@@ -4,7 +4,7 @@ import org.eclipse.rdf4j.model.IRI
 import org.eclipse.rdf4j.model.Model
 import org.eclipse.rdf4j.model.vocabulary.RDF
 import org.eclipse.rdf4j.model.vocabulary.RDFS
-import org.kbods.rdf.utils.literal
+import org.rdf4k.literal
 
 internal data class SchemaCode(
     val code: String,

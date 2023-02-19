@@ -1,19 +1,27 @@
 package org.kbods.rdf
 
 import org.eclipse.rdf4j.model.IRI
+import org.eclipse.rdf4j.model.Literal
 import org.eclipse.rdf4j.model.Statement
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory
 import org.eclipse.rdf4j.model.vocabulary.FOAF
 import org.eclipse.rdf4j.model.vocabulary.RDF
+import org.eclipse.rdf4j.model.vocabulary.XSD
 import org.kbods.rdf.interest.interestsToRdf
-import org.kbods.rdf.utils.add
-import org.kbods.rdf.utils.literal
-import org.kbods.rdf.utils.valueFactory
 import org.kbods.read.BodsStatement
 import org.kbods.read.BodsStatementType
 import org.kbods.read.interestEndDate
+import org.rdf4k.add
+import org.rdf4k.iri
+import org.rdf4k.literal
 
-fun BodsStatement.iri(): IRI = BodsRdf.resource(this.id)
-fun BodsStatement.bodsEntityType(): IRI = BodsRdf.def(json.string("entityType")!!.capitalize())
+fun BodsStatement.iri(): IRI = BodsRdf.RESOURCE.iri(this.id)
+fun BodsStatement.bodsEntityType(): IRI = BodsRdf.VOCABULARY.iri(json.string("entityType")!!.capitalize())
+internal val valueFactory = SimpleValueFactory.getInstance()
+internal fun String.literalDate(): Literal {
+    return valueFactory.createLiteral(this, XSD.DATE)
+}
+
 
 fun List<BodsStatement>.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
     val statements = mutableListOf<Statement>()
@@ -84,8 +92,8 @@ private fun BodsStatement.processOwnershipCtrlStatement(config: BodsRdfConfig, i
         || (nonExpiredInterests == 0 && config.importExpiredInterests)
     ) {
 
-        val targetEntity = BodsRdf.resource(subjectId!!)
-        val interestedParty = if (interestedPartyId != null) BodsRdf.resource(interestedPartyId) else valueFactory.createBNode()
+        val targetEntity = BodsRdf.RESOURCE.iri(subjectId!!)
+        val interestedParty = if (interestedPartyId != null) BodsRdf.RESOURCE.iri(interestedPartyId) else valueFactory.createBNode()
         val ctrlStatement = iri()
 
         statements.add(interestedParty, BodsRdf.PROP_OWNS_OR_CONTROLS, targetEntity, config.graph)

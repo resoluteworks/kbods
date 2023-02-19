@@ -49,10 +49,10 @@ private fun doImport(
         if (includeVocabulary) {
             BodsVocabulary.write(connection)
         }
-        sequence.chunked(config.readBatchSize).forEach { batch ->
-            val rdfStatements = batch.toRdf(config)
+        sequence.forEach { bodsStatement ->
+            val rdfStatements = bodsStatement.toRdf(config)
             connection.add(rdfStatements)
-            pluginRunner.runPlugins(batch)
+            pluginRunner.runPlugins(bodsStatement)
         }
     }
 }

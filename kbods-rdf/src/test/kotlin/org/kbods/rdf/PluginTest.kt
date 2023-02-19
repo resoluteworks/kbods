@@ -1,13 +1,12 @@
 package org.kbods.rdf
 
 import org.eclipse.rdf4j.model.Statement
+import org.kbods.RdfContainerTest
+import org.kbods.rdf.plugins.BodsConvertPlugin
 import org.kbods.read.BodsStatement
 import org.kbods.read.BodsStatementType
 import org.kbods.utils.resourceAsInput
-import org.kbods.RdfContainerTest
-import org.kbods.rdf.plugins.BodsConvertPlugin
-import org.kbods.rdf.utils.statement
-import org.kbods.rdf.utils.valueFactory
+import org.rdf4k.statement
 import org.testng.annotations.Test
 
 class PluginTest : RdfContainerTest() {

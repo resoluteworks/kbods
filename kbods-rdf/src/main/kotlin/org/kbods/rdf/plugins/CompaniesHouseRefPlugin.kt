@@ -2,12 +2,13 @@ package org.kbods.rdf.plugins
 
 import org.eclipse.rdf4j.model.Statement
 import org.eclipse.rdf4j.model.vocabulary.OWL
+import org.kbods.rdf.iri
 import org.kbods.read.BodsStatement
 import org.kbods.read.BodsStatementType
 import org.kbods.read.JsonConst
-import org.kbods.rdf.iri
-import org.kbods.rdf.utils.CompaniesHouseUtils
-import org.kbods.rdf.utils.add
+import org.rdf4k.add
+import org.rdf4k.iri
+import org.rdf4k.namespace
 
 /**
  * See https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris for details
@@ -23,7 +24,7 @@ class CompaniesHouseRefPlugin : BodsConvertPlugin {
         if (bodsStatement.jurisdictionCode == JsonConst.JURISDICTION_GB) {
             val companyNumber = bodsStatement.identifier(JsonConst.IDENTIFIER_SCHEME_COMPANIES_HOUSE)
             if (companyNumber != null) {
-                statements.add(subject, OWL.SAMEAS, CompaniesHouseUtils.company(companyNumber))
+                statements.add(subject, OWL.SAMEAS, CH_NAMESPACE.iri(companyNumber))
             }
         }
         return statements
@@ -31,5 +32,6 @@ class CompaniesHouseRefPlugin : BodsConvertPlugin {
 
     companion object {
         const val NAME = "uk-company-refs"
+        val CH_NAMESPACE = "http://data.companieshouse.gov.uk/doc/company/".namespace("ch")
     }
 }

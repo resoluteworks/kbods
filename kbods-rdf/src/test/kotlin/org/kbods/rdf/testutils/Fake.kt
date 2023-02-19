@@ -1,6 +1,7 @@
 package org.kbods.rdf.testutils
 
 import io.github.serpro69.kfaker.faker
+import org.kbods.utils.cleanWhitespace
 import java.util.*
 
 object Fake {
@@ -63,10 +64,6 @@ object Fake {
             companyCleansingRegexes.add(regex)
         }
     }
-}
-
-fun String.cleanWhitespace(): String {
-    return replace("\\s+".toRegex(), " ").trim()
 }
 
 fun String.removeAll(regexes: List<Regex>): String {

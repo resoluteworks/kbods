@@ -10,8 +10,9 @@ import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager
 import org.eclipse.rdf4j.rio.RDFFormat
 import org.eclipse.rdf4j.rio.Rio
 import org.eclipse.rdf4j.rio.helpers.StatementCollector
-import org.kbods.utils.resourceAsString
 import org.kbods.rdf.BodsRdf
+import org.kbods.utils.resourceAsString
+import org.rdf4k.iri
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.util.*
@@ -78,7 +79,7 @@ class RdfHelper(
     fun runQueryFileForTarget(queryFilePath: String, targetStr: String, fakeNames: Boolean = false) {
         val rows = runTupleQueryFromFile(
             queryFilePath,
-            mapOf("target" to BodsRdf.resource(targetStr))
+            mapOf("target" to BodsRdf.RESOURCE.iri(targetStr))
         )
         printTuplesRows(rows, fakeNames)
         printTuplesToFile(File("$queryFilePath.csv"), rows, fakeNames)
