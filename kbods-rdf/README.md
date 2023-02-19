@@ -1,4 +1,4 @@
-# kbods-rdf
+# BODS RDF
 
 This is a Kotlin library for processing [Open Ownership](https://www.openownership.org/) BODS data 
 as [RDF](https://www.w3.org/RDF/). It is an implementation of the [BODS RDF proposal](https://docs.google.com/document/d/1vej-UkK7QtmfKrmU6aD15vceIzJDsCv1jbHCJWgn9hs)
@@ -11,13 +11,13 @@ schema version.
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
 
 ## Downloads
-Last exported 13/02/2023.
+Last exported 19/02/2023.
 | Dataset | Turtle | BRF |
 | --- | --- | --- |
 | Open Ownership register data in RDF format | [bods-rdf.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.ttl.gz) 1.3GB | [bods-rdf.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.brf.gz) 2.5GB |
 | UK Companies references <sup>1</sup> | [bods-rdf-uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-uk-company-refs.ttl.gz) 130MB | [bods-rdf-uk-company-refs.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-uk-company-refs.brf.gz) 130MB |
 
-<sup>1</sup> Maps BODS statements for UK entities to the coresponding [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris) using `owl:sameAs`. Useful for data linking between Open Ownership and other sources.
+<sup>1</sup> Maps BODS statements for UK entities to the corresponding [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris) using `owl:sameAs`. Useful for data linking between Open Ownership and other sources.
 
 ## Resources
 * RDF Vocabulary:
@@ -33,7 +33,7 @@ Last exported 13/02/2023.
 #### Gradle dependency
 ```groovy
 dependencies {
-    implementation 'io.resoluteworks:kbods-rdf:0.9.0'
+    implementation 'io.resoluteworks:kbods-rdf:0.9.1'
 }
 ```
 
@@ -84,7 +84,7 @@ BodsVocabulary.write(repository)
 
 #### Fetch the fat JAR for the latest version
 ```shell
-KBODS_VERSION="0.9.0"
+KBODS_VERSION="0.9.1"
 BODS_RDF_JAR="https://repo.maven.apache.org/maven2/io/resoluteworks/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
 curl $BODS_RDF_JAR > bods-rdf.jar
 ```

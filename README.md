@@ -1,4 +1,4 @@
-# kbods
+# KBODS
 
 [![](https://img.shields.io/github/v/release/cosmin-marginean/kbods?display_name=tag)](https://github.com/cosmin-marginean/kbods/releases)
 

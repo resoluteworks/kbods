@@ -18,7 +18,7 @@ git push
 git tag "${VERSION}"
 git push --tags --force
 
-gh release create "${VERSION}" --verify-tag --title "kbods ${VERSION}" --notes "Version ${VERSION}"
+gh release create "${VERSION}" --verify-tag --title "KBODS ${VERSION}" --notes "Version ${VERSION}"
 
 echo "Finished building version $VERSION"
 

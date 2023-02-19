@@ -16,17 +16,18 @@ import java.time.format.DateTimeFormatter
 
 object ChRdfConverter {
 
-    val FMT_DATE = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    private val FMT_DATE = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
     fun convertToRdf(inputCsv: File, outputFile: File) {
-        outputFile.useRdfWriter(RDFFormat.TURTLE, ChRdf.ALL_NAMESPACES) { rdfWriter ->
+        outputFile.useRdfWriter(RDFFormat.TURTLE, ChRdf.ALL_NAMESPACES, 16 * 1024 * 1024) { rdfWriter ->
             CompaniesHouseBulkDataset.readCsv(inputCsv) { csvRecord ->
                 val companyUriStr = csvRecord["URI"].trim()
-                if (!companyUriStr.isNullOrEmpty()) {
+                if (companyUriStr.isNotEmpty()) {
                     val companyIri = companyUriStr.iri()
                     rdfWriter.write(companyIri, ChRdf.PROP_COMPANY_STATUS, csvRecord.literal("CompanyStatus", true))
                     sicCodes(csvRecord).forEach {
-                        rdfWriter.write(companyIri, ChRdf.PROP_SIC_CODE, it.literal())
+                        rdfWriter.write(companyIri, ChRdf.PROP_SIC_CODE, it.key.literal())
+                        rdfWriter.write(companyIri, ChRdf.PROP_SIC_TEXT, it.value.literal())
                     }
 
                     appendDate(csvRecord, rdfWriter, companyIri, ChRdf.PROP_INCORPORATION_DATE, "IncorporationDate")
@@ -47,13 +48,13 @@ object ChRdfConverter {
         header: String
     ) {
         val dateStr = csvRecord[header].cleanWhitespace()
-        if (!dateStr.isNullOrEmpty()) {
+        if (dateStr.isNotEmpty()) {
             val date = LocalDate.from(FMT_DATE.parse(dateStr))
             rdfWriter.write(companyIri, property, date.literal())
         }
     }
 
-    private fun sicCodes(csvRecord: CSVRecord): List<String> {
+    private fun sicCodes(csvRecord: CSVRecord): Map<Int, String> {
         return listOf(
             csvRecord["SICCode.SicText_1"].cleanWhitespace(),
             csvRecord["SICCode.SicText_2"].cleanWhitespace(),
@@ -61,8 +62,8 @@ object ChRdfConverter {
             csvRecord["SICCode.SicText_4"].cleanWhitespace()
         ).filter {
             it.isNotEmpty() && it.contains("\\d".toRegex())
-        }.map {
-            it.split("-")[0].cleanWhitespace()
+        }.associateBy {
+            it.split("-")[0].cleanWhitespace().toInt()
         }
     }
 }
