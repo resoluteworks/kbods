@@ -32,14 +32,8 @@ Last exported 13/02/2023.
 ## JVM Usage
 #### Gradle dependency
 ```groovy
-repositories {
-    maven {
-        url "https://resoluteworks-maven.s3-eu-west-1.amazonaws.com"
-    }
-}
-
 dependencies {
-    implementation 'org.kbods:kbods-rdf:0.8.4'
+    implementation 'io.resoluteworks:kbods-rdf:0.9.0'
 }
 ```
 
@@ -90,8 +84,8 @@ BodsVocabulary.write(repository)
 
 #### Fetch the fat JAR for the latest version
 ```shell
-KBODS_VERSION="0.8.4"
-BODS_RDF_JAR="https://resoluteworks-maven.s3-eu-west-1.amazonaws.com/org/kbods/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
+KBODS_VERSION="0.9.0"
+BODS_RDF_JAR="https://repo.maven.apache.org/maven2/io/resoluteworks/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
 curl $BODS_RDF_JAR > bods-rdf.jar
 ```
 

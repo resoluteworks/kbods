@@ -25,7 +25,6 @@ the tools provided here support the download and ingestion of this register out 
 The libraries all have `kbods-read` as a transitive dependency, but otherwise they can be used separately or together in the same project.
 
 ```shell
-
 dependencies {
     implementation "io.resoluteworks:kbods-read:${kbodsVersion}"
     implementation "io.resoluteworks:kbods-elasticsearch:${kbodsVersion}"
