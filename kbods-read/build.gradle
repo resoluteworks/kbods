@@ -3,3 +3,37 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:4.10.0"
     implementation "commons-io:commons-io:2.11.0"
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = "${project.name}"
+                description = "Tools for reading beneficial ownership data in the BODS JSONL format: https://standard.openownership.org"
+                url = "${publishUrl}"
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = "${publishLicenseUrl}"
+                        distribution = 'repo'
+                    }
+                }
+                scm {
+                    url = "https://github.com/${publishGit}"
+                    connection = "scm:git:git://github.com/${publishGit}.git"
+                    developerConnection = "scm:git:ssh://git@github.com:${publishGit}.git"
+                }
+                developers {
+                    developer {
+                        name = 'Cosmin Marginean'
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}

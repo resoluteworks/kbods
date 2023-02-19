@@ -37,7 +37,7 @@ private fun doConvert(
     includeVocabulary: Boolean = true
 ) {
     val format = fileRdfFormat(outputFile.name)!!
-    outputFile.useRdfWriter(format, BodsRdf.REQUIRED_NAMESPACES) { rdfWriter ->
+    outputFile.useRdfWriter(format, BodsRdf.REQUIRED_NAMESPACES, 16 * 1024 * 1024) { rdfWriter ->
         PluginRunner.file(config, outputFile.parentFile, format).use { pluginRunner ->
             if (includeVocabulary) {
                 BodsVocabulary.write(rdfWriter)

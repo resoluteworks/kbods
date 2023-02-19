@@ -1,17 +1,30 @@
 plugins {
     id "maven-publish"
+    id "signing"
     id "com.glovoapp.semantic-versioning" version "1.1.10"
     id "org.jetbrains.kotlin.jvm" version "${kotlinVersion}" apply false
     id "org.jetbrains.dokka" version "1.7.20" apply false
 }
 
 subprojects {
+    apply plugin: 'java'
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
     apply plugin: 'org.jetbrains.dokka'
     apply plugin: 'org.jetbrains.kotlin.jvm'
 
-    group = "org.kbods"
+    group = "io.resoluteworks"
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+    javadocJar {
+        dependsOn(dokkaHtml)
+        archiveClassifier.set("javadoc")
+        from(dokkaHtml.outputDirectory)
+    }
 
     repositories {
         mavenCentral()
@@ -61,16 +74,11 @@ subprojects {
         repositories {
             mavenLocal()
             maven {
-                url = "s3://resoluteworks-maven"
-                credentials(AwsCredentials) {
-                    accessKey = System.env.AWS_ACCESS_KEY_ID
-                    secretKey = System.env.AWS_SECRET_ACCESS_KEY
+                url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+                credentials {
+                    username = "${NEXUS_USERNAME}"
+                    password = "${NEXUS_PASSWORD}"
                 }
-            }
-        }
-        publications {
-            jar(MavenPublication) {
-                from components.java
             }
         }
     }

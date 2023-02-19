@@ -3,6 +3,7 @@ $dokka.linkExtension:html
 $dokka.location:org.kbods.utils////PointingToDeclaration/kbods-commons/org.kbods.utils/index.html
 $dokka.location:org.kbods.utils//checkOk/okhttp3.Response#/PointingToDeclaration/kbods-commons/org.kbods.utils/check-ok.html
 $dokka.location:org.kbods.utils//checkStatus/okhttp3.Response#kotlin.IntArray/PointingToDeclaration/kbods-commons/org.kbods.utils/check-status.html
+$dokka.location:org.kbods.utils//cleanWhitespace/kotlin.String#/PointingToDeclaration/kbods-commons/org.kbods.utils/clean-whitespace.html
 $dokka.location:org.kbods.utils//currentDirectory/#/PointingToDeclaration/kbods-commons/org.kbods.utils/current-directory.html
 $dokka.location:org.kbods.utils//get/okhttp3.OkHttpClient#kotlin.String#kotlin.collections.Map[kotlin.String,kotlin.String]/PointingToDeclaration/kbods-commons/org.kbods.utils/get.html
 $dokka.location:org.kbods.utils//grouped/kotlin.Number#/PointingToDeclaration/kbods-commons/org.kbods.utils/grouped.html

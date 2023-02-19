@@ -22,25 +22,15 @@ the tools provided here support the download and ingestion of this register out 
 
 ## Usage
 
-Add the kbods repository to your Gradle configuration.
-
-```groovy
-repositories {
-    maven {
-        url "https://resoluteworks-maven.s3-eu-west-1.amazonaws.com"
-    }
-}
-```
-
 The libraries all have `kbods-read` as a transitive dependency, but otherwise they can be used separately or together in the same project.
 
 ```shell
 
 dependencies {
-    implementation "org.kbods:kbods-read:${kbodsVersion}"
-    implementation "org.kbods:kbods-elasticsearch:${kbodsVersion}"
-    implementation "org.kbods:kbods-mongo:${kbodsVersion}"
-    implementation "org.kbods:kbods-rdf:${kbodsVersion}"
+    implementation "io.resoluteworks:kbods-read:${kbodsVersion}"
+    implementation "io.resoluteworks:kbods-elasticsearch:${kbodsVersion}"
+    implementation "io.resoluteworks:kbods-mongo:${kbodsVersion}"
+    implementation "io.resoluteworks:kbods-rdf:${kbodsVersion}"
 }
 ```
 
