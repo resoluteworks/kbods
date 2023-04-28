@@ -1,6 +1,6 @@
 rootProject.name = 'kbods'
 
-include 'kbods-commons'
+include 'kbods-internals'
 include 'kbods-elasticsearch'
 include 'kbods-experimental'
 include 'kbods-mongo'

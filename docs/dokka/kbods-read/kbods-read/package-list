@@ -9,8 +9,8 @@ $dokka.location:org.kbods.read//useBodsStatementsSequence/java.io.File#kotlin.Fu
 $dokka.location:org.kbods.read//useBodsStatementsSequence/java.io.InputStream#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/use-bods-statements-sequence.html
 $dokka.location:org.kbods.read/BodsDownload.Companion///PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/index.html
 $dokka.location:org.kbods.read/BodsDownload.Companion/URL_LATEST/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/-u-r-l_-l-a-t-e-s-t.html
-$dokka.location:org.kbods.read/BodsDownload.Companion/forUrl/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/for-url.html
-$dokka.location:org.kbods.read/BodsDownload.Companion/latest/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/latest.html
+$dokka.location:org.kbods.read/BodsDownload.Companion/forUrl/#kotlin.String#java.io.File/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/for-url.html
+$dokka.location:org.kbods.read/BodsDownload.Companion/latest/#java.io.File/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/latest.html
 $dokka.location:org.kbods.read/BodsDownload///PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/index.html
 $dokka.location:org.kbods.read/BodsDownload/BodsDownload/#kotlin.String#java.io.File/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-bods-download.html
 $dokka.location:org.kbods.read/BodsDownload/bodsGzipUrl/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/bods-gzip-url.html

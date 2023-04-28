@@ -8,6 +8,7 @@ $dokka.location:org.kbods.rdf.plugins/BodsConvertPlugin/generateStatements/#org.
 $dokka.location:org.kbods.rdf.plugins/BodsConvertPlugin/name/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-bods-convert-plugin/name.html
 $dokka.location:org.kbods.rdf.plugins/BodsConvertPlugin/statementType/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-bods-convert-plugin/statement-type.html
 $dokka.location:org.kbods.rdf.plugins/CompaniesHouseRefPlugin.Companion///PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-companies-house-ref-plugin/-companion/index.html
+$dokka.location:org.kbods.rdf.plugins/CompaniesHouseRefPlugin.Companion/CH_BUSINESS_NAMESPACE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-companies-house-ref-plugin/-companion/-c-h_-b-u-s-i-n-e-s-s_-n-a-m-e-s-p-a-c-e.html
 $dokka.location:org.kbods.rdf.plugins/CompaniesHouseRefPlugin.Companion/CH_NAMESPACE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-companies-house-ref-plugin/-companion/-c-h_-n-a-m-e-s-p-a-c-e.html
 $dokka.location:org.kbods.rdf.plugins/CompaniesHouseRefPlugin.Companion/NAME/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-companies-house-ref-plugin/-companion/-n-a-m-e.html
 $dokka.location:org.kbods.rdf.plugins/CompaniesHouseRefPlugin///PointingToDeclaration/kbods-rdf/org.kbods.rdf.plugins/-companies-house-ref-plugin/index.html

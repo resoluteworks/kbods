@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(":kbods-commons")
+    implementation project(":kbods-internals")
     implementation project(":kbods-read")
 
     implementation "co.elastic.clients:elasticsearch-java:8.6.1"
@@ -9,36 +9,6 @@ dependencies {
     testImplementation "org.eclipse.rdf4j:rdf4j-rio-api:4.2.2"
     testImplementation "org.eclipse.rdf4j:rdf4j-runtime:4.2.2"
     testImplementation "org.testcontainers:elasticsearch:1.17.6"
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            pom {
-                name = "${project.name}"
-                description = "Tools for parsing and importing BODS data to Elasticsearch"
-                url = "${publishUrl}"
-                licenses {
-                    license {
-                        name = 'Apache License 2.0'
-                        url = "${publishLicenseUrl}"
-                        distribution = 'repo'
-                    }
-                }
-                scm {
-                    url = "https://github.com/${publishGit}"
-                    connection = "scm:git:git://github.com/${publishGit}.git"
-                    developerConnection = "scm:git:ssh://git@github.com:${publishGit}.git"
-                }
-                developers {
-                    developer {
-                        name = 'Cosmin Marginean'
-                    }
-                }
-            }
-        }
-    }
 }
 
 signing {

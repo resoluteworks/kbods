@@ -58,7 +58,12 @@ class BodsDownload(
         private val log = LoggerFactory.getLogger(BodsDownload::class.java)
         const val URL_LATEST = "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz"
 
-        fun forUrl(bodsGzipUrl: String): BodsDownload = BodsDownload(bodsGzipUrl)
-        fun latest(): BodsDownload = forUrl(URL_LATEST)
+        fun forUrl(bodsGzipUrl: String, workingDirectory: File = currentDirectory()): BodsDownload {
+            return BodsDownload(bodsGzipUrl, workingDirectory)
+        }
+
+        fun latest(workingDirectory: File = currentDirectory()): BodsDownload {
+            return forUrl(URL_LATEST, workingDirectory)
+        }
     }
 }
