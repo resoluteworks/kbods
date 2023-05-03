@@ -20,6 +20,8 @@ $dokka.location:org.kbods.read/BodsDownload/workingDirectory/#/PointingToDeclara
 $dokka.location:org.kbods.read/BodsStatement.Companion///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-companion/index.html
 $dokka.location:org.kbods.read/BodsStatement///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/index.html
 $dokka.location:org.kbods.read/BodsStatement/BodsStatement/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-bods-statement.html
+$dokka.location:org.kbods.read/BodsStatement/equals/#kotlin.Any?/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/equals.html
+$dokka.location:org.kbods.read/BodsStatement/hashCode/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/hash-code.html
 $dokka.location:org.kbods.read/BodsStatement/id/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/id.html
 $dokka.location:org.kbods.read/BodsStatement/identifier/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/identifier.html
 $dokka.location:org.kbods.read/BodsStatement/interestedPartyId/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/interested-party-id.html
