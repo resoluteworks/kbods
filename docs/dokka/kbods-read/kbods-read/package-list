@@ -20,6 +20,7 @@ $dokka.location:org.kbods.read/BodsDownload/workingDirectory/#/PointingToDeclara
 $dokka.location:org.kbods.read/BodsStatement.Companion///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-companion/index.html
 $dokka.location:org.kbods.read/BodsStatement///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/index.html
 $dokka.location:org.kbods.read/BodsStatement/BodsStatement/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/-bods-statement.html
+$dokka.location:org.kbods.read/BodsStatement/allNames/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/all-names.html
 $dokka.location:org.kbods.read/BodsStatement/equals/#kotlin.Any?/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/equals.html
 $dokka.location:org.kbods.read/BodsStatement/hashCode/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/hash-code.html
 $dokka.location:org.kbods.read/BodsStatement/id/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/id.html
@@ -31,6 +32,7 @@ $dokka.location:org.kbods.read/BodsStatement/isOwnershipCtrl/#/PointingToDeclara
 $dokka.location:org.kbods.read/BodsStatement/isPerson/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/is-person.html
 $dokka.location:org.kbods.read/BodsStatement/json/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/json.html
 $dokka.location:org.kbods.read/BodsStatement/jsonString/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/json-string.html
+$dokka.location:org.kbods.read/BodsStatement/jsonString/#kotlin.Function2[org.kbods.read.BodsStatement,com.beust.klaxon.JsonObject,com.beust.klaxon.JsonObject]?/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/json-string.html
 $dokka.location:org.kbods.read/BodsStatement/jurisdictionCode/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/jurisdiction-code.html
 $dokka.location:org.kbods.read/BodsStatement/name/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/name.html
 $dokka.location:org.kbods.read/BodsStatement/nationalities/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/nationalities.html

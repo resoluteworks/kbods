@@ -49,7 +49,7 @@ abstract class ElasticsearchContainerTest {
         return BodsStatement(doc(index, id))
     }
 
-    fun testStatements(index: String) {
+    fun testStatements(index: String, testAllNames: Boolean = false) {
         await()
             .pollInterval(Duration.ofSeconds(1))
             .atMost(Duration.ofSeconds(10)).until {
@@ -79,6 +79,11 @@ abstract class ElasticsearchContainerTest {
         assertEquals(statement(index, "openownership-register-4878504546140740426").name, "CASTLE BASTION LIMITED")
         assertEquals(statement(index, "openownership-register-13077997364453373905").name, "Brian James Wallace")
         assertEquals(statement(index, "openownership-register-12569216474294322485").identifier("GB-COH"), "09083149")
+
+        if (testAllNames) {
+            assertEquals(statement(index, "openownership-register-4878504546140740426").allNames, setOf("CASTLE BASTION LIMITED"))
+            assertEquals(statement(index, "openownership-register-14062781532659537710").allNames, setOf("Charles Stuart John Barter"))
+        }
     }
 }
 

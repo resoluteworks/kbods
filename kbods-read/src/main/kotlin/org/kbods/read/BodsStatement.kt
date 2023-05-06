@@ -28,6 +28,14 @@ class BodsStatement(val jsonString: String) {
             json.array<JsonObject>("names")?.firstOrNull()?.string("fullName") ?: "UNKNOWN"
         }
 
+    val allNames: Set<String>
+        get() {
+            val names = mutableSetOf<String>()
+            json.string("name")?.let { names.add(it) }
+            json.array<JsonObject>("names")?.forEach { name -> name.string("fullName")?.let { names.add(it) } }
+            return names
+        }
+
     val subjectId: String? = json.obj("subject")?.string("describedByEntityStatement")
     val sourceType: String? = json.obj("source")?.array<String>("type")?.joinToString(";")
     val jurisdictionCode: String? = json.obj("incorporatedInJurisdiction")?.string("code")
@@ -54,6 +62,14 @@ class BodsStatement(val jsonString: String) {
             ?.filter { it.string("scheme") == scheme }
             ?.map { it.string("id") }
             ?.firstOrNull()
+    }
+
+    fun jsonString(patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null): String {
+        return if (patchJson == null) {
+            jsonString
+        } else {
+            patchJson(this, json).toJsonString()
+        }
     }
 
     override fun equals(other: Any?): Boolean {

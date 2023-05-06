@@ -27,7 +27,7 @@ class Examples : ElasticsearchContainerTest() {
         repository.connection.use { connection ->
             BodsDownload.latest().useStatementSequence { sequence ->
                 sequence.chunked(1000).forEach { batch ->
-                    esClient.writeBodsStatements(batch, "myindex")
+                    esClient.writeBodsStatements("myindex", batch)
                     connection.add(batch.toRdf())
                 }
             }

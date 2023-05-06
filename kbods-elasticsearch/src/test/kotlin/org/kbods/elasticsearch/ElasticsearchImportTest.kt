@@ -15,6 +15,16 @@ class ElasticsearchImportTest : ElasticsearchContainerTest() {
     }
 
     @Test
+    fun `import from input stream - patch json`() {
+        val index = randomIndex()
+        esClient.importBodsStatements(resourceAsInput("statements.jsonl"), index, 100) { statement, json ->
+            json["allNames"] = statement.allNames
+            json
+        }
+        testStatements(index, true)
+    }
+
+    @Test
     fun `import from file`() {
         TempDir().use { tempDir ->
             val jsonlFile = tempDir.newFile()
