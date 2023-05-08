@@ -14,7 +14,7 @@ schema version.
 Last exported 19/02/2023.
 | Dataset | Turtle | BRF<sup>1</sup> |
 | --- | --- | --- |
-| Open Ownership register data in RDF format | [bods-rdf.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.ttl.gz) 1.3GB | [bods-rdf.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.brf.gz) 2.5GB |
+| Open Ownership register in RDF format | [bods-rdf.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.ttl.gz) 1.3GB | [bods-rdf.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.brf.gz) 2.5GB |
 | UK Companies references <sup>2</sup> | [bods-rdf-uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-uk-company-refs.ttl.gz) 150MB | [bods-rdf-uk-company-refs.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf-uk-company-refs.brf.gz) 230MB |
 
 <sup>1</sup> [BRF](https://rdf4j.org/javadoc/latest/org/eclipse/rdf4j/rio/RDFFormat.html#BINARY) format is larger when compressed but smaller unpacked.
