@@ -29,7 +29,7 @@ Read more about this [here](https://world.hey.com/cos/using-bods-rdf-to-link-ben
 
 
 <sup>3</sup> A lightweight version of BODS RDF, that only contains the ownership and control relationships.
-Details like name, jurisdiction, interest details are not included. This is useful for when the RDF model is use strictly
+Information like name, jurisdiction, interest details, etc is not included. This is useful for when the RDF model is use strictly
 for graph queries and all other statement details are de-referenced from another (document) store. 
 
 ## Resources
