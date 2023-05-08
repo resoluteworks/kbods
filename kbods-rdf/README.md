@@ -19,6 +19,8 @@ Last exported 19/02/2023.
 
 <sup>1</sup> [BRF](https://rdf4j.org/javadoc/latest/org/eclipse/rdf4j/rio/RDFFormat.html#BINARY) format is larger when compressed but smaller unpacked.
 Due to its binary nature, it should be faster to import in an RDF triplestore.   
+
+
 <sup>2</sup> Maps BODS statements for UK entities to the corresponding 
 [UK Companies Identifiers](https://www.data.gov.uk/dataset/5a33338a-e142-4f05-9458-ca7283f410b3/company-identifiers-uris) using `owl:sameAs`.
 Useful for data linking between Open Ownership and other sources.
