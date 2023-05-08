@@ -23,7 +23,7 @@ Due to its binary nature, it should be faster to import in an RDF triplestore.
 
 
 <sup>2</sup> A lightweight version of BODS RDF, that only contains the ownership and control relationships.
-Information like name, jurisdiction, interest details, etc is not included. This is useful for when the RDF model is use strictly
+Information like name, jurisdiction, interest details, etc. is not included. This is useful when the RDF model is use strictly
 for graph queries and all other statement details are de-referenced from another (document) store.
 
 
