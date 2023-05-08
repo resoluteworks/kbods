@@ -30,7 +30,7 @@ class Examples {
                 graph = SimpleValueFactory.getInstance().createIRI("https://mydomain.com", "mygraph")
             )
             BodsDownload.latest()
-                .import(connection, config)
+                .import(connection = connection, config = config)
         }
     }
 

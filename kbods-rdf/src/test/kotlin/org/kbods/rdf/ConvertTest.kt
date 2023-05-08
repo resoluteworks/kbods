@@ -31,7 +31,10 @@ class ConvertTest : RdfContainerTest() {
                 relationshipsOnly = true,
                 importExpiredInterests = false
             )
-            resourceAsInput("statements.jsonl").import(connection, config)
+            resourceAsInput("statements.jsonl").import(
+                connection = connection,
+                config = config
+            )
         }
 
         assertCount("count-foaf-name.sparql", 0)

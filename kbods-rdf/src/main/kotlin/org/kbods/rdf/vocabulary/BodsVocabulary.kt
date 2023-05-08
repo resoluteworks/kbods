@@ -19,6 +19,7 @@ import org.kbods.utils.httpClient
 import org.kbods.utils.resourceAsInput
 import org.kbods.utils.resourceExists
 import org.kbods.utils.unzip
+import org.rdf4k.repository.StatementsBatch
 import org.rdf4k.resourceToRdfModel
 import org.rdf4k.useRdfWriter
 import org.slf4j.LoggerFactory
@@ -42,6 +43,10 @@ object BodsVocabulary {
 
     fun write(connection: RepositoryConnection, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
         connection.add(loadVocabulary(schemaVersion))
+    }
+
+    fun write(batch: StatementsBatch, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
+        batch.add(loadVocabulary(schemaVersion))
     }
 
     fun write(outputFile: File, schemaVersion: BodsSchemaVersion = BodsSchemaVersion.BULK_REGISTER_VERSION) {
