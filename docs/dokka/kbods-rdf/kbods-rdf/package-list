@@ -90,7 +90,6 @@ $dokka.location:org.kbods.rdf/BodsRdfAppCommand/BodsRdfAppCommand/#/PointingToDe
 $dokka.location:org.kbods.rdf/BodsRdfConfig.Companion///PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/-companion/index.html
 $dokka.location:org.kbods.rdf/BodsRdfConfig///PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/index.html
 $dokka.location:org.kbods.rdf/BodsRdfConfig/BodsRdfConfig/#kotlin.Boolean#kotlin.Boolean#org.eclipse.rdf4j.model.IRI?/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/-bods-rdf-config.html
-$dokka.location:org.kbods.rdf/BodsRdfConfig/addPlugin/#kotlin.String/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/add-plugin.html
 $dokka.location:org.kbods.rdf/BodsRdfConfig/addPlugin/#org.kbods.rdf.plugins.BodsConvertPlugin/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/add-plugin.html
 $dokka.location:org.kbods.rdf/BodsRdfConfig/graph/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/graph.html
 $dokka.location:org.kbods.rdf/BodsRdfConfig/importExpiredInterests/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf-config/import-expired-interests.html

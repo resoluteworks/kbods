@@ -25,10 +25,6 @@ data class BodsRdfConfig(
 
     internal val plugins = mutableMapOf<BodsStatementType, MutableList<BodsConvertPlugin>>()
 
-    fun addPlugin(pluginName: String) {
-        addPlugin(BodsConvertPlugin.getPlugin(pluginName))
-    }
-
     fun addPlugin(plugin: BodsConvertPlugin) {
         plugins.putIfAbsent(plugin.statementType, mutableListOf())
         plugins[plugin.statementType]!!.add(plugin)

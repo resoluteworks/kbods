@@ -2,22 +2,35 @@
 
 set -e
 
-VERSION=`cat ../../version.properties | grep "version" | awk -F' *= *' '{print $2}'`
+# Build the fat jar first
 (cd ../../ && ./gradlew clean kbods-rdf:build -x test)
+VERSION=`cat ../../version.properties | grep "version" | awk -F' *= *' '{print $2}'`
+JAR_PATH="$(realpath ../build/libs/kbods-rdf-${VERSION}-all.jar)"
 
-INPUT_FILE="/Users/cosmin/temp/statements.jsonl"
-OUTPUT_DIR="/Users/cosmin/temp/bods-rdf"
-rm -rf $OUTPUT_DIR
-mkdir -p $OUTPUT_DIR
+# Clean working dir and switch to it
+WORKING_DIR="temp"
+rm -rf $WORKING_DIR
+mkdir $WORKING_DIR
+mkdir $WORKING_DIR/output
+OUTPUT_DIR="$(realpath $WORKING_DIR/output)"
+cd $WORKING_DIR
 
-java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
-    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf.ttl" --plugin="uk-company-refs"
+# Download and unpack
+curl "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz" > statements.latest.jsonl.gz
+gunzip statements.latest.jsonl.gz
 
-java -jar ../build/libs/kbods-rdf-${VERSION}-all.jar \
-    convert --input=$INPUT_FILE --output="$OUTPUT_DIR/bods-rdf.brf" --plugin="uk-company-refs"
+# Convert to TTL and BRF
+java -jar $JAR_PATH \
+    convert --input=statements.latest.jsonl --output="${OUTPUT_DIR}/bods-rdf.ttl" --plugin="uk-company-refs"
 
+java -jar $JAR_PATH \
+    convert --input=statements.latest.jsonl --output="${OUTPUT_DIR}/bods-rdf.brf" --plugin="uk-company-refs"
+
+# Compress output files
 for file in "$OUTPUT_DIR"/*
 do
   echo "Compressing $file"
   gzip $file
 done
+
+rm -rf statements.latest.jsonl
