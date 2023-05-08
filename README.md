@@ -104,7 +104,7 @@ So there are certain BODS schema definitions which don't have an RDF equivalent 
 Because of this, you may use and RDF repository exclusively for graph-based queries, and then
 de-reference JSON statement details from a primary database.
 
-Below is a very crude example on how to addess this and import the BODS register in Elasticsearch
+Below is a very crude example on how to address this and import the BODS register in Elasticsearch
 and an RDF repository while only reading the dataset once.
 
 ```kotlin

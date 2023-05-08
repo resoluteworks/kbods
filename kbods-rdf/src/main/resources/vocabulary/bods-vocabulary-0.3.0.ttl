@@ -4,8 +4,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix bods: <http://bods.openownership.org/vocabulary/> .
-@prefix bods-res: <http://bods.openownership.org/resource/> .
+@prefix bodsr: <http://bods.openownership.org/resource/> .
 @prefix ch: <http://data.companieshouse.gov.uk/doc/company/> .
+@prefix chb: <http://business.data.gov.uk/id/company/> .
 
 bods:Party a rdfs:Class;
   owl:equivalentClass foaf:Agent .

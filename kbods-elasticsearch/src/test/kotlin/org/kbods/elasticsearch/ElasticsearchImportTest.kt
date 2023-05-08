@@ -19,7 +19,6 @@ class ElasticsearchImportTest : ElasticsearchContainerTest() {
         val index = randomIndex()
         esClient.importBodsStatements(resourceAsInput("statements.jsonl"), index, 100) { statement, json ->
             json["allNames"] = statement.allNames
-            json
         }
         testStatements(index, true)
     }

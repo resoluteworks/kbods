@@ -64,11 +64,21 @@ class BodsStatement(val jsonString: String) {
             ?.firstOrNull()
     }
 
-    fun jsonString(patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null): String {
+    fun jsonString(patchJson: ((BodsStatement, JsonObject) -> Unit)? = null): String {
         return if (patchJson == null) {
             jsonString
         } else {
-            patchJson(this, json).toJsonString()
+            patchJson(this, json)
+            json.toJsonString()
+        }
+    }
+
+    fun jsonString(patchJson: ((JsonObject) -> Unit)? = null): String {
+        return if (patchJson == null) {
+            jsonString
+        } else {
+            patchJson(json)
+            json.toJsonString()
         }
     }
 

@@ -5,6 +5,7 @@ import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
 import org.kbods.read.useBodsStatementsSequence
+import org.rdf4k.repository.StatementsBatch
 import org.rdf4k.repository.useBatch
 import java.io.File
 import java.io.InputStream
@@ -15,7 +16,7 @@ fun BodsDownload.import(
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useStatementSequence { sequence ->
-        doImport(sequence, connection, batchSize, config)
+        sequence.import(connection, batchSize, config)
     }
 }
 
@@ -25,7 +26,7 @@ fun File.import(
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useBodsStatementsSequence { sequence ->
-        doImport(sequence, connection, batchSize, config)
+        sequence.import(connection, batchSize, config)
     }
 }
 
@@ -35,24 +36,30 @@ fun InputStream.import(
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useBodsStatementsSequence { sequence ->
-        doImport(sequence, connection, batchSize, config)
+        sequence.import(connection, batchSize, config)
     }
 }
 
-private fun doImport(
-    sequence: Sequence<BodsStatement>,
+fun Sequence<BodsStatement>.import(
     connection: RepositoryConnection,
     batchSize: Int,
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
     connection.useBatch(batchSize) { batch ->
         BodsVocabulary.write(batch)
-        sequence.forEach { bodsStatement ->
-            val rdfStatements = bodsStatement.toRdf(config)
-            batch.add(rdfStatements)
-            config.runPlugins(bodsStatement) { _, statements ->
-                batch.add(statements)
-            }
+        forEach { bodsStatement ->
+            bodsStatement.write(batch, config)
         }
+    }
+}
+
+fun BodsStatement.write(
+    batch: StatementsBatch,
+    config: BodsRdfConfig
+) {
+    val rdfStatements = toRdf(config)
+    batch.add(rdfStatements)
+    config.runPlugins(this) { _, statements ->
+        batch.add(statements)
     }
 }

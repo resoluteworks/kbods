@@ -14,7 +14,7 @@ fun BodsDownload.import(
     elasticsearchClient: ElasticsearchClient,
     index: String,
     batchSize: Int,
-    patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null
+    patchJson: ((BodsStatement, JsonObject) -> Unit)? = null
 ) {
     this.useStatementSequence { sequence ->
         sequence.chunked(batchSize).forEach { batch ->
@@ -26,7 +26,7 @@ fun BodsDownload.import(
 fun ElasticsearchClient.importBodsStatements(
     jsonlFile: File,
     index: String, batchSize: Int,
-    patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null
+    patchJson: ((BodsStatement, JsonObject) -> Unit)? = null
 ) {
     jsonlFile.inputStream().use { inputStream ->
         this.importBodsStatements(inputStream, index, batchSize, patchJson)
@@ -37,7 +37,7 @@ fun ElasticsearchClient.importBodsStatements(
     inputStream: InputStream,
     index: String,
     batchSize: Int,
-    patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null
+    patchJson: ((BodsStatement, JsonObject) -> Unit)? = null
 ) {
     inputStream.useBodsStatementsSequence { sequence ->
         sequence.chunked(batchSize).forEach { batch ->
@@ -49,7 +49,7 @@ fun ElasticsearchClient.importBodsStatements(
 fun ElasticsearchClient.writeBodsStatements(
     index: String,
     batch: List<BodsStatement>,
-    patchJson: ((BodsStatement, JsonObject) -> JsonObject)? = null
+    patchJson: ((BodsStatement, JsonObject) -> Unit)? = null
 ) {
     val bulkRequest = BulkRequest.Builder()
     batch.forEach { statement ->
