@@ -11,7 +11,7 @@ schema version.
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
 
 ## Downloads
-Last exported 19/02/2023.
+Last exported 08/05/2023.
 | Dataset | Turtle | BRF<sup>1</sup> |
 | --- | --- | --- |
 | Open Ownership register in RDF format | [bods-rdf.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.ttl.gz) 1.3GB | [bods-rdf.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-rdf.brf.gz) 2.5GB |
@@ -106,12 +106,4 @@ If the input file has the `.gz` extenzion, this will be unzipped first, and the 
 ```shell
 java -jar bods-rdf.jar convert --input=statements.latest.jsonl --output=statements.ttl
 java -jar bods-rdf.jar convert --input=statements.latest.jsonl.gz --output=statements.ttl
-```
-
-#### Exclude vocabulary from output TTL
-By default, the BODS schema vocabulary is written in the output TTL file. To disable this, you can pass the `--exclude-vocabulary` flag to
-either of `convert` or `convert-latest`
-```shell
-java -jar bods-rdf.jar convert --input=statements.latest.jsonl --output=statements.ttl --exclude-vocabulary
-java -jar bods-rdf.jar convert-latest --output=statements.ttl --exclude-vocabulary
 ```

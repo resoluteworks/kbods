@@ -9,9 +9,8 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.multiple
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.required
-import org.kbods.rdf.plugins.BodsConvertPlugin
+import org.kbods.rdf.convert.BodsConverter
 import org.kbods.read.BodsDownload
-import org.slf4j.LoggerFactory
 import java.io.File
 
 object BodsRdfApp {
@@ -26,41 +25,27 @@ object BodsRdfApp {
 class BodsRdfAppCommand : NoOpCliktCommand()
 
 class CommonConvertOptions : OptionGroup() {
-    val output by option("--output").required()
-    val excludeVocabulary by option("--exclude-vocabulary").flag()
+    val outputs: List<String> by option("--output").multiple(required = true)
     val plugins: List<String> by option("--plugin").multiple(required = false)
-
-    val config: BodsRdfConfig
-        get() {
-            val config = BodsRdfConfig()
-            plugins.forEach { pluginName ->
-                log.info("Adding plugin $pluginName")
-                config.addPlugin(BodsConvertPlugin.getPlugin(pluginName))
-            }
-            return config
-        }
-
-    companion object {
-        private val log = LoggerFactory.getLogger(CommonConvertOptions::class.java)
-    }
+    val relationshipsOnly: Boolean by option("--relationships-only").flag(default = false)
+    val config: BodsRdfConfig get() = BodsRdfConfig(relationshipsOnly = relationshipsOnly).withPlugins(plugins)
 }
-
 
 class Convert : CliktCommand() {
     private val commonOptions by CommonConvertOptions()
     val input by option("--input").required()
 
     override fun run() {
-        File(input)
-            .convert(File(commonOptions.output), commonOptions.config, !commonOptions.excludeVocabulary)
+        BodsConverter(commonOptions.config, commonOptions.outputs.map { File(it) })
+            .convert(File(input))
     }
 }
 
 class ConvertLatest : CliktCommand() {
     private val commonOptions by CommonConvertOptions()
     override fun run() {
-        BodsDownload.latest()
-            .convert(File(commonOptions.output), commonOptions.config, !commonOptions.excludeVocabulary)
+        BodsConverter(commonOptions.config, commonOptions.outputs.map { File(it) })
+            .convert(BodsDownload.latest())
     }
 }
 

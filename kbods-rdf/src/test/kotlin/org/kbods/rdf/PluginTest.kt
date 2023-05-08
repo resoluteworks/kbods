@@ -15,8 +15,7 @@ class PluginTest : RdfContainerTest() {
     fun `entity plugin`() {
         val repository = rdfHelper.repository
         repository.connection.use { connection ->
-            val config = BodsRdfConfig()
-            config.addPlugin(TestPlugin())
+            val config = BodsRdfConfig().withPlugins(TestPlugin())
             resourceAsInput("statements.jsonl").import(connection, config)
         }
         assertCount("count-plugin-test-query.sparql", 30)

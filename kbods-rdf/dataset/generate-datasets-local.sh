@@ -17,14 +17,18 @@ cd $WORKING_DIR
 
 # Download and unpack
 curl "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz" > statements.latest.jsonl.gz
+echo "Unpacking statements.latest.jsonl.gz"
 gunzip statements.latest.jsonl.gz
 
 # Convert to TTL and BRF
-java -jar $JAR_PATH \
-    convert --input=statements.latest.jsonl --output="${OUTPUT_DIR}/bods-rdf.ttl" --plugin="uk-company-refs"
+java -jar $JAR_PATH convert --input=statements.latest.jsonl \
+    --output="${OUTPUT_DIR}/bods.ttl" \
+    --output="${OUTPUT_DIR}/bods.brf" \
+    --plugin="uk-company-refs"
 
-java -jar $JAR_PATH \
-    convert --input=statements.latest.jsonl --output="${OUTPUT_DIR}/bods-rdf.brf" --plugin="uk-company-refs"
+java -jar $JAR_PATH convert --input=statements.latest.jsonl --relationships-only \
+    --output="${OUTPUT_DIR}/bods-relationships-only.ttl" \
+    --output="${OUTPUT_DIR}/bods-relationships-only.brf"
 
 # Compress output files
 for file in "$OUTPUT_DIR"/*
@@ -32,5 +36,3 @@ do
   echo "Compressing $file"
   gzip $file
 done
-
-rm -rf statements.latest.jsonl
