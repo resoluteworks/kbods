@@ -59,10 +59,14 @@ class BodsStatement(val jsonString: String) {
         }
 
     fun identifier(schemeIdOrName: String): String? {
+        return identifiers(schemeIdOrName).firstOrNull()
+    }
+
+    fun identifiers(schemeIdOrName: String): List<String> {
         return json.array<JsonObject>("identifiers")
                 ?.filter { it.string("scheme") == schemeIdOrName || it.string("schemeName") == schemeIdOrName }
-                ?.map { it.string("id") }
-                ?.firstOrNull()
+                ?.map { it.string("id")!! }
+                ?: emptyList()
     }
 
     fun jsonString(patchJson: ((BodsStatement, JsonObject) -> Unit)? = null): String {

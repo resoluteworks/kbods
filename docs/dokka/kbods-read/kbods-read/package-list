@@ -25,6 +25,7 @@ $dokka.location:org.kbods.read/BodsStatement/equals/#kotlin.Any?/PointingToDecla
 $dokka.location:org.kbods.read/BodsStatement/hashCode/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/hash-code.html
 $dokka.location:org.kbods.read/BodsStatement/id/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/id.html
 $dokka.location:org.kbods.read/BodsStatement/identifier/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/identifier.html
+$dokka.location:org.kbods.read/BodsStatement/identifiers/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/identifiers.html
 $dokka.location:org.kbods.read/BodsStatement/interestedPartyId/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/interested-party-id.html
 $dokka.location:org.kbods.read/BodsStatement/interests/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/interests.html
 $dokka.location:org.kbods.read/BodsStatement/isEntity/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/is-entity.html
