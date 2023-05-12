@@ -1,7 +1,7 @@
 package org.kbods.read
 
-enum class BodsStatementType {
-    ENTITY,
-    PERSON,
-    OWNERSHIP_CTRL
+enum class BodsStatementType(val type: String) {
+    ENTITY("entityStatement"),
+    PERSON("personStatement"),
+    OWNERSHIP_CTRL("ownershipOrControlStatement")
 }

@@ -13,20 +13,20 @@ class BodsStatement(val jsonString: String) {
     val isPerson: Boolean = json.string("statementType") == "personStatement"
     val isOwnershipCtrl: Boolean = json.string("statementType") == "ownershipOrControlStatement"
     val statementType: BodsStatementType =
-        if (isEntity) {
-            BodsStatementType.ENTITY
-        } else if (isPerson) {
-            BodsStatementType.PERSON
-        } else {
-            BodsStatementType.OWNERSHIP_CTRL
-        }
+            if (isEntity) {
+                BodsStatementType.ENTITY
+            } else if (isPerson) {
+                BodsStatementType.PERSON
+            } else {
+                BodsStatementType.OWNERSHIP_CTRL
+            }
 
     val name: String =
-        if (json.containsKey("name")) {
-            json.string("name")!!
-        } else {
-            json.array<JsonObject>("names")?.firstOrNull()?.string("fullName") ?: "UNKNOWN"
-        }
+            if (json.containsKey("name")) {
+                json.string("name")!!
+            } else {
+                json.array<JsonObject>("names")?.firstOrNull()?.string("fullName") ?: "UNKNOWN"
+            }
 
     val allNames: Set<String>
         get() {
@@ -41,7 +41,8 @@ class BodsStatement(val jsonString: String) {
     val jurisdictionCode: String? = json.obj("incorporatedInJurisdiction")?.string("code")
     val statementDate: String? = json.string("statementDate")
     val personType: String? = json.string("personType")
-    val nationalities: List<String> = json.array<JsonObject>("nationalities")?.map { it.string("code")!! } ?: emptyList()
+    val nationalities: List<String> = json.array<JsonObject>("nationalities")?.map { it.string("code")!! }
+            ?: emptyList()
     val interests: List<JsonObject> = json.array<JsonObject>("interests")?.toList() ?: emptyList()
 
     val interestedPartyId: String?
@@ -57,11 +58,11 @@ class BodsStatement(val jsonString: String) {
             }
         }
 
-    fun identifier(scheme: String): String? {
+    fun identifier(schemeIdOrName: String): String? {
         return json.array<JsonObject>("identifiers")
-            ?.filter { it.string("scheme") == scheme }
-            ?.map { it.string("id") }
-            ?.firstOrNull()
+                ?.filter { it.string("scheme") == schemeIdOrName || it.string("schemeName") == schemeIdOrName }
+                ?.map { it.string("id") }
+                ?.firstOrNull()
     }
 
     fun jsonString(patchJson: ((BodsStatement, JsonObject) -> Unit)? = null): String {

@@ -46,6 +46,7 @@ $dokka.location:org.kbods.read/BodsStatementType.ENTITY///PointingToDeclaration/
 $dokka.location:org.kbods.read/BodsStatementType.OWNERSHIP_CTRL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kbods-read/org.kbods.read/-bods-statement-type/-o-w-n-e-r-s-h-i-p_-c-t-r-l/index.html
 $dokka.location:org.kbods.read/BodsStatementType.PERSON///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kbods-read/org.kbods.read/-bods-statement-type/-p-e-r-s-o-n/index.html
 $dokka.location:org.kbods.read/BodsStatementType///PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement-type/index.html
+$dokka.location:org.kbods.read/BodsStatementType/type/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement-type/type.html
 $dokka.location:org.kbods.read/BodsStatementType/valueOf/#kotlin.String/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement-type/value-of.html
 $dokka.location:org.kbods.read/BodsStatementType/values/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement-type/values.html
 $dokka.location:org.kbods.read/JsonConst///PointingToDeclaration/kbods-read/org.kbods.read/-json-const/index.html
