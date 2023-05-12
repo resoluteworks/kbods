@@ -20,7 +20,7 @@ import org.kbods.utils.resourceAsInput
 import org.kbods.utils.resourceExists
 import org.kbods.utils.unzip
 import org.rdf4k.repository.StatementsBatch
-import org.rdf4k.resourceToRdfModel
+import org.rdf4k.resourceAsRdfModel
 import org.rdf4k.useRdfWriter
 import org.slf4j.LoggerFactory
 import java.io.File
@@ -64,7 +64,7 @@ object BodsVocabulary {
         val vocabularyResource = "vocabulary/bods-vocabulary-${schemaVersion.versionString}.ttl"
 
         if (resourceExists(vocabularyResource)) {
-            return resourceToRdfModel(vocabularyResource)
+            return resourceAsRdfModel(vocabularyResource)
 
         } else {
             TempDir().use { tempDir ->
