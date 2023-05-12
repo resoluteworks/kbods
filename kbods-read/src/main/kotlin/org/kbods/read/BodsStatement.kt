@@ -37,7 +37,7 @@ class BodsStatement(val jsonString: String) {
         }
 
     val subjectId: String? = json.obj("subject")?.string("describedByEntityStatement")
-    val sourceType: String? = json.obj("source")?.array<String>("type")?.joinToString(";")
+    val sourceType: String? = json.obj("source")?.get("type").arrayOrString()
     val jurisdictionCode: String? = json.obj("incorporatedInJurisdiction")?.string("code")
     val statementDate: String? = json.string("statementDate")
     val personType: String? = json.string("personType")
@@ -102,5 +102,15 @@ class BodsStatement(val jsonString: String) {
 
     companion object {
         private val jsonParser = Klaxon()
+    }
+}
+
+private fun Any?.arrayOrString(): String? {
+    return if (this == null) {
+        null
+    } else if (this is Collection<*>) {
+        this.joinToString(";")
+    } else {
+        this.toString()
     }
 }
