@@ -1,6 +1,7 @@
 package org.kbods.read
 
 import org.kbods.utils.grouped
+import org.kbods.utils.gunzipText
 import org.slf4j.LoggerFactory
 import java.io.BufferedReader
 import java.io.File
@@ -18,20 +19,28 @@ fun File.readBodsStatements(statementHandler: (statement: BodsStatement) -> Unit
 }
 
 fun InputStream.readBodsStatements(statementHandler: (statement: BodsStatement) -> Unit) {
-    this.useBodsStatementsSequence { sequence ->
+    this.useBodsStatements { sequence ->
         sequence.forEach { statement ->
             statementHandler(statement)
         }
     }
 }
 
-fun File.useBodsStatementsSequence(consumer: (Sequence<BodsStatement>) -> Unit) {
-    this.inputStream().use { jsonlInputStream ->
-        jsonlInputStream.useBodsStatementsSequence(consumer)
+fun File.useBodsStatements(consumer: (Sequence<BodsStatement>) -> Unit) {
+    val unpack: Boolean = extension.lowercase() == "gz"
+
+    if (unpack) {
+        gunzipText { lines ->
+            consumer(lines.map { BodsStatement(it) })
+        }
+    } else {
+        inputStream().use { jsonlInputStream ->
+            jsonlInputStream.useBodsStatements(consumer)
+        }
     }
 }
 
-fun InputStream.useBodsStatementsSequence(consumer: (Sequence<BodsStatement>) -> Unit) {
+fun InputStream.useBodsStatements(consumer: (Sequence<BodsStatement>) -> Unit) {
     var count = 0
     BufferedReader(InputStreamReader(this), DEFAULT_BUFFER_SIZE).useLines { lines ->
         consumer(lines.map { line ->

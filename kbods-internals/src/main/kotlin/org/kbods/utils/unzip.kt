@@ -2,20 +2,18 @@ package org.kbods.utils
 
 import org.apache.commons.io.IOUtils
 import org.slf4j.LoggerFactory
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.InputStream
+import java.io.*
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 import java.util.zip.GZIPInputStream
 import java.util.zip.ZipInputStream
 
+
 private val log = LoggerFactory.getLogger("org.kbods.utils.unzip")
 
 fun File.unzip(destDir: File, charset: Charset = StandardCharsets.UTF_8) {
     this.inputStream()
-        .use { it.unzip(destDir, charset) }
+            .use { it.unzip(destDir, charset) }
 }
 
 fun InputStream.unzip(destDir: File, charset: Charset = StandardCharsets.UTF_8) {
@@ -48,6 +46,12 @@ fun File.gunzip(output: File) {
     }
 }
 
+fun File.gunzipText(block: (Sequence<String>) -> Unit) {
+    FileInputStream(this).use { inputStream ->
+        inputStream.gunzipText(block)
+    }
+}
+
 fun InputStream.gunzip(output: File) {
     GZIPInputStream(this).use { gzip ->
         val buffer = ByteArray(128 * 1024)
@@ -59,3 +63,14 @@ fun InputStream.gunzip(output: File) {
         }
     }
 }
+
+fun InputStream.gunzipText(block: (Sequence<String>) -> Unit) {
+    GZIPInputStream(this).use { gzip ->
+        InputStreamReader(gzip, StandardCharsets.UTF_8)
+                .buffered()
+                .useLines {
+                    block(it)
+                }
+    }
+}
+

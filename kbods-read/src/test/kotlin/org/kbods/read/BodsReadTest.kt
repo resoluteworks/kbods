@@ -28,7 +28,7 @@ class BodsReadTest {
     @Test
     fun `input stream statement sequence`() {
         val statements = mutableListOf<BodsStatement>()
-        resourceAsInput("statements.jsonl").useBodsStatementsSequence { sequence ->
+        resourceAsInput("statements.jsonl").useBodsStatements { sequence ->
             sequence.forEach { statement ->
                 statements.add(statement)
             }
@@ -39,7 +39,7 @@ class BodsReadTest {
     @Test
     fun `input stream statement sequence - chunked`() {
         val statements = mutableListOf<BodsStatement>()
-        resourceAsInput("statements.jsonl").useBodsStatementsSequence { sequence ->
+        resourceAsInput("statements.jsonl").useBodsStatements { sequence ->
             sequence.chunked(15).forEach { batch ->
                 statements.addAll(batch)
             }
@@ -54,7 +54,7 @@ class BodsReadTest {
             jsonlFile.writeText(resourceAsString("statements.jsonl"))
 
             val statements = mutableListOf<BodsStatement>()
-            jsonlFile.useBodsStatementsSequence { sequence ->
+            jsonlFile.useBodsStatements { sequence ->
                 sequence.forEach { statement ->
                     statements.add(statement)
                 }
@@ -63,5 +63,22 @@ class BodsReadTest {
         }
     }
 
+    @Test
+    fun `local dataset`() {
+        TempDir().use { tempDir ->
+            val bodsFile = tempDir.newFile(".gz")
+            bodsFile.outputStream().use {
+                resourceAsInput("statements.jsonl.gz").copyTo(it)
+            }
+
+            val statements = mutableListOf<BodsStatement>()
+            bodsFile.useBodsStatements { sequence ->
+                sequence.forEach { statement ->
+                    statements.add(statement)
+                }
+            }
+            testStatements(statements)
+        }
+    }
 }
 

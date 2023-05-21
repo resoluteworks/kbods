@@ -6,7 +6,7 @@ import co.elastic.clients.json.JsonData
 import com.beust.klaxon.JsonObject
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
-import org.kbods.read.useBodsStatementsSequence
+import org.kbods.read.useBodsStatements
 import java.io.File
 import java.io.InputStream
 
@@ -39,7 +39,7 @@ fun ElasticsearchClient.importBodsStatements(
     batchSize: Int,
     patchJson: ((BodsStatement, JsonObject) -> Unit)? = null
 ) {
-    inputStream.useBodsStatementsSequence { sequence ->
+    inputStream.useBodsStatements { sequence ->
         sequence.chunked(batchSize).forEach { batch ->
             this.writeBodsStatements(index, batch, patchJson)
         }

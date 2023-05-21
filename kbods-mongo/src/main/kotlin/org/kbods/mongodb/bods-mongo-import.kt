@@ -4,7 +4,7 @@ import com.mongodb.client.MongoCollection
 import org.bson.Document
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
-import org.kbods.read.useBodsStatementsSequence
+import org.kbods.read.useBodsStatements
 import java.io.File
 import java.io.InputStream
 
@@ -23,7 +23,7 @@ fun MongoCollection<Document>.importBodsStatements(file: File, batchSize: Int) {
 }
 
 fun MongoCollection<Document>.importBodsStatements(inputStream: InputStream, batchSize: Int) {
-    inputStream.useBodsStatementsSequence { sequence ->
+    inputStream.useBodsStatements { sequence ->
         sequence.chunked(batchSize).forEach { batch ->
             this.writeBodsStatements(batch)
         }

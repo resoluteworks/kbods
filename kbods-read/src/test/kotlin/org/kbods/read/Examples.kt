@@ -1,30 +1,21 @@
 package org.kbods.read
 
+import java.io.File
+
 class Examples {
 
     fun test() {
         // Download and parse the latest Open Ownership register
-        BodsDownload.latest().readStatements { bodsStatement ->
-            println(bodsStatement.jsonString)
-            println(bodsStatement.statementType)
-            if (bodsStatement.isOwnershipCtrl) {
-                println(bodsStatement.interests)
-            }
+        BodsDownload.latest().readStatements { bodsStatement: BodsStatement ->
+            // Process BodsStatement
         }
 
-        // Using a statements sequence, and optionally batching
-        BodsDownload.latest().useStatementSequence { sequence ->
-            sequence.chunked(100).forEach { batch ->
-                batch.forEach { bodsStatement ->
-                    println(bodsStatement.jsonString)
-                }
-            }
-        }
 
-        // Download a BODS register from a specific URL
-        val url = "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.2023-02-01T14:23:22Z.jsonl.gz"
-        BodsDownload.forUrl(url).readStatements { bodsStatement ->
-            println(bodsStatement.jsonString)
+        // Read a BODS dataset from a local file (JSONL or GZ, decompressed if required)
+        File("/path/to/file.jsonl.gz").useBodsStatements { statements ->
+            statements.forEach { statement: BodsStatement ->
+                // Process BodsStatement
+            }
         }
     }
 }

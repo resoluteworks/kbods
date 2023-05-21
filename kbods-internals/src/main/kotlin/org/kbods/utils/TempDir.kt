@@ -1,24 +1,22 @@
 package org.kbods.utils
 
-import org.apache.commons.io.FileUtils
 import org.slf4j.LoggerFactory
 import java.io.Closeable
 import java.io.File
 import java.io.IOException
 import java.util.*
 
-class TempDir(
-    val workingDir: File = currentDirectory()
-) : Closeable {
+class TempDir(workingDir: File = workingDirectory()) : Closeable {
 
-    private val root = createRootDir(workingDir)
+    val directory = createRootDir(workingDir)
 
-    fun newFile(): File {
-        return File(root, uuid())
+    fun newFile(extension: String? = null): File {
+        val ext = extension?.let { "." + extension.removePrefix(".") } ?: ""
+        return File(directory, UUID.randomUUID().toString() + ext)
     }
 
     fun newDirectory(): File {
-        val dir = File(root, uuid())
+        val dir = File(directory, UUID.randomUUID().toString())
         if (!dir.mkdirs()) {
             throw IllegalStateException("Could not create directory $dir")
         }
@@ -27,31 +25,36 @@ class TempDir(
 
     override fun close() {
         val deleted = try {
-            FileUtils.deleteDirectory(root)
+            directory.deleteRecursively()
             true
         } catch (ioe: IOException) {
-            log.warn("Could not delete temporary directory $root")
+            log.warn("Could not delete temporary directory $directory")
             false
         }
 
         if (!deleted) {
-            log.warn("Could not delete temporary directory $root")
+            log.warn("Could not delete temporary directory $directory")
         } else {
-            log.info("Deleted temporary directory $root")
+            log.info("Deleted temporary directory $directory")
         }
     }
 
     private fun createRootDir(workingDirectory: File): File {
-        val tempFile = File(workingDirectory, uuid())
+        val tempFile = File(workingDirectory, UUID.randomUUID().toString())
         if (!tempFile.mkdirs()) {
             throw IllegalStateException("Could not create temp dir $tempFile")
         }
         return tempFile
     }
 
-    private fun uuid() = UUID.randomUUID().toString()
-
     companion object {
         private val log = LoggerFactory.getLogger(TempDir::class.java)
     }
+}
+
+fun <T> withTempDir(
+        workingDir: File = workingDirectory(),
+        block: (TempDir) -> T
+): T {
+    return TempDir(workingDir).use(block)
 }

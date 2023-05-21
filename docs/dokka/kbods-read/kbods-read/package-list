@@ -5,8 +5,8 @@ $dokka.location:org.kbods.read//interestEndDate/com.beust.klaxon.JsonObject#/Poi
 $dokka.location:org.kbods.read//interestStartDate/com.beust.klaxon.JsonObject#/PointingToDeclaration/kbods-read/org.kbods.read/interest-start-date.html
 $dokka.location:org.kbods.read//readBodsStatements/java.io.File#kotlin.Function1[org.kbods.read.BodsStatement,kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/read-bods-statements.html
 $dokka.location:org.kbods.read//readBodsStatements/java.io.InputStream#kotlin.Function1[org.kbods.read.BodsStatement,kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/read-bods-statements.html
-$dokka.location:org.kbods.read//useBodsStatementsSequence/java.io.File#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/use-bods-statements-sequence.html
-$dokka.location:org.kbods.read//useBodsStatementsSequence/java.io.InputStream#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/use-bods-statements-sequence.html
+$dokka.location:org.kbods.read//useBodsStatements/java.io.File#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/use-bods-statements.html
+$dokka.location:org.kbods.read//useBodsStatements/java.io.InputStream#kotlin.Function1[kotlin.sequences.Sequence[org.kbods.read.BodsStatement],kotlin.Unit]/PointingToDeclaration/kbods-read/org.kbods.read/use-bods-statements.html
 $dokka.location:org.kbods.read/BodsDownload.Companion///PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/index.html
 $dokka.location:org.kbods.read/BodsDownload.Companion/URL_LATEST/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/-u-r-l_-l-a-t-e-s-t.html
 $dokka.location:org.kbods.read/BodsDownload.Companion/forUrl/#kotlin.String#java.io.File/PointingToDeclaration/kbods-read/org.kbods.read/-bods-download/-companion/for-url.html

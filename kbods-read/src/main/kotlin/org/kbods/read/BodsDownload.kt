@@ -1,19 +1,12 @@
 package org.kbods.read
 
-import org.kbods.utils.TempDir
-import org.kbods.utils.checkOk
-import org.kbods.utils.currentDirectory
-import org.kbods.utils.get
-import org.kbods.utils.grouped
-import org.kbods.utils.gunzip
-import org.kbods.utils.httpClient
-import org.kbods.utils.writeTo
+import org.kbods.utils.*
 import org.slf4j.LoggerFactory
 import java.io.File
 
 class BodsDownload(
-    val bodsGzipUrl: String,
-    val workingDirectory: File = currentDirectory()
+        val bodsGzipUrl: String,
+        val workingDirectory: File = workingDirectory()
 ) {
 
     private val httpClient = httpClient()
@@ -29,7 +22,7 @@ class BodsDownload(
     fun useStatementSequence(consumer: (Sequence<BodsStatement>) -> Unit) {
         TempDir(workingDirectory).use { tempDir ->
             val jsonlFile = downloadAndUnzip(bodsGzipUrl, tempDir)
-            jsonlFile.useBodsStatementsSequence { sequence ->
+            jsonlFile.useBodsStatements { sequence ->
                 consumer(sequence)
             }
         }
@@ -39,8 +32,8 @@ class BodsDownload(
         val archiveFile = tempDir.newFile()
         log.info("Downloading BODS register from $bodsGzipUrl to $archiveFile")
         val response = httpClient
-            .get(bodsGzipUrl)
-            .checkOk()
+                .get(bodsGzipUrl)
+                .checkOk()
         response.writeTo(archiveFile)
 
         val jsonlFile = tempDir.newFile()
@@ -58,11 +51,11 @@ class BodsDownload(
         private val log = LoggerFactory.getLogger(BodsDownload::class.java)
         const val URL_LATEST = "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz"
 
-        fun forUrl(bodsGzipUrl: String, workingDirectory: File = currentDirectory()): BodsDownload {
+        fun forUrl(bodsGzipUrl: String, workingDirectory: File = workingDirectory()): BodsDownload {
             return BodsDownload(bodsGzipUrl, workingDirectory)
         }
 
-        fun latest(workingDirectory: File = currentDirectory()): BodsDownload {
+        fun latest(workingDirectory: File = workingDirectory()): BodsDownload {
             return forUrl(URL_LATEST, workingDirectory)
         }
     }

@@ -4,7 +4,7 @@ import org.eclipse.rdf4j.repository.RepositoryConnection
 import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
-import org.kbods.read.useBodsStatementsSequence
+import org.kbods.read.useBodsStatements
 import org.rdf4k.repository.StatementsBatch
 import org.rdf4k.repository.useBatch
 import java.io.File
@@ -25,7 +25,7 @@ fun File.import(
     batchSize: Int = 10_000,
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
-    this.useBodsStatementsSequence { sequence ->
+    this.useBodsStatements { sequence ->
         sequence.import(connection, batchSize, config)
     }
 }
@@ -35,7 +35,7 @@ fun InputStream.import(
     batchSize: Int = 10_000,
     config: BodsRdfConfig = BodsRdfConfig()
 ) {
-    this.useBodsStatementsSequence { sequence ->
+    this.useBodsStatements { sequence ->
         sequence.import(connection, batchSize, config)
     }
 }

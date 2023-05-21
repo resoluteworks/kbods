@@ -8,7 +8,7 @@ import org.kbods.rdf.toRdf
 import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
-import org.kbods.read.useBodsStatementsSequence
+import org.kbods.read.useBodsStatements
 import java.io.File
 
 class BodsConverter(
@@ -36,7 +36,7 @@ class BodsConverter(
     }
 
     fun convert(bodsJsonlFile: File) {
-        bodsJsonlFile.useBodsStatementsSequence { sequence ->
+        bodsJsonlFile.useBodsStatements { sequence ->
             convert(sequence)
         }
     }

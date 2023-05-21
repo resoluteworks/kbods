@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+KBODS_VERSION="0.10.3"
+
 set -e
 
 # Clean working dir and switch to it
@@ -11,7 +13,6 @@ OUTPUT_DIR="$(realpath $WORKING_DIR/output)"
 cd $WORKING_DIR
 
 # Download BODS RDF JAR use to run the import command line
-KBODS_VERSION="0.9.5"
 BODS_RDF_JAR="https://repo.maven.apache.org/maven2/io/resoluteworks/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
 curl $BODS_RDF_JAR > bods-rdf.jar
 JAR_PATH="$(realpath bods-rdf.jar)"
