@@ -36,6 +36,7 @@ class BodsStatement(val jsonString: String) {
             return names
         }
 
+    val replacesStatements: List<String> = json.array<String>("replacesStatements")?.toList() ?: emptyList()
     val subjectId: String? = json.obj("subject")?.string("describedByEntityStatement")
     val sourceType: String? = json.obj("source")?.get("type").arrayOrString()
     val jurisdictionCode: String? = json.obj("incorporatedInJurisdiction")?.string("code")

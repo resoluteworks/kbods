@@ -1,0 +1,60 @@
+{
+  "statementID": "12082504888233808982",
+  "statementType": "entityStatement",
+  "statementDate": "2023-03-15",
+  "isComponent": false,
+  "entityType": "registeredEntity",
+  "name": "Biffa Waste Services Limited",
+  "incorporatedInJurisdiction": {
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "code": "GB"
+  },
+  "identifiers": [
+    {
+      "id": "/company/06524298/persons-with-significant-control/corporate-entity/v1q6VRuhrJ0Os8f-vzM9ExWxGuE",
+      "schemeName": "GB Persons Of Significant Control Register"
+    },
+    {
+      "id": "00946107",
+      "schemeName": "GB Persons Of Significant Control Register - Registration numbers"
+    },
+    {
+      "id": "https://opencorporates.com/companies/gb/00946107",
+      "schemeName": "OpenCorporates",
+      "uri": "https://opencorporates.com/companies/gb/00946107"
+    },
+    {
+      "id": "/entities/1542730339269426528",
+      "schemeName": "OpenOwnership Register",
+      "uri": "/entities/1542730339269426528"
+    }
+  ],
+  "foundingDate": "1969-01-16",
+  "addresses": [
+    {
+      "type": "registered",
+      "address": "Coronation Road, Cressex, High Wycombe, Bucks, HP12 3TZ",
+      "country": "GB"
+    }
+  ],
+  "replacesStatements": [
+    "1542730339269426528",
+    "14609729328118672241"
+  ],
+  "publicationDetails": {
+    "publicationDate": "2023-03-15",
+    "bodsVersion": "0.2",
+    "license": "https://register.openownership.org/terms-and-conditions",
+    "publisher": {
+      "name": "OpenOwnership Register",
+      "url": "https://register.openownership.org"
+    }
+  },
+  "source": {
+    "type": "officialRegister",
+    "description": "GB Persons Of Significant Control Register",
+    "url": "http://download.companieshouse.gov.uk/en_pscdata.html",
+    "retrievedAt": "2023-03-15",
+    "assertedBy": null
+  }
+}

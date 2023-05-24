@@ -39,6 +39,7 @@ $dokka.location:org.kbods.read/BodsStatement/jurisdictionCode/#/PointingToDeclar
 $dokka.location:org.kbods.read/BodsStatement/name/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/name.html
 $dokka.location:org.kbods.read/BodsStatement/nationalities/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/nationalities.html
 $dokka.location:org.kbods.read/BodsStatement/personType/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/person-type.html
+$dokka.location:org.kbods.read/BodsStatement/replacesStatements/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/replaces-statements.html
 $dokka.location:org.kbods.read/BodsStatement/sourceType/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/source-type.html
 $dokka.location:org.kbods.read/BodsStatement/statementDate/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/statement-date.html
 $dokka.location:org.kbods.read/BodsStatement/statementType/#/PointingToDeclaration/kbods-read/org.kbods.read/-bods-statement/statement-type.html
