@@ -32,7 +32,9 @@ fun List<BodsStatement>.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Sta
 }
 
 fun BodsStatement.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
-    return when (this.statementType) {
+    val statements = mutableListOf<Statement>()
+
+    val typeStatements = when (this.statementType) {
         BodsStatementType.ENTITY -> processEntity(config)
         BodsStatementType.PERSON -> processPerson(config)
         BodsStatementType.OWNERSHIP_CTRL -> {
@@ -44,9 +46,16 @@ fun BodsStatement.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement
             statements
         }
     }
+
+    statements.addAll(typeStatements)
+    replacesStatements.forEach {
+        statements.add(this.iri(), BodsRdf.PROP_REPLACES_STATEMENTS, BodsRdf.RESOURCE.iri(it))
+    }
+
+    return statements
 }
 
-private fun BodsStatement.processEntity(config: BodsRdfConfig): MutableList<Statement> {
+private fun BodsStatement.processEntity(config: BodsRdfConfig): List<Statement> {
     val statements = mutableListOf<Statement>()
     val statementRes = this.iri()
     statements.add(statementRes, RDF.TYPE, this.bodsEntityType(), config.graph)
@@ -88,8 +97,8 @@ private fun BodsStatement.processOwnershipCtrlStatement(config: BodsRdfConfig, i
     // - OR there are non-expired interests
     // - OR config allows importing expired interests
     if (totalInterests == 0
-        || nonExpiredInterests > 0
-        || (nonExpiredInterests == 0 && config.importExpiredInterests)
+            || nonExpiredInterests > 0
+            || (nonExpiredInterests == 0 && config.importExpiredInterests)
     ) {
 
         val targetEntity = BodsRdf.RESOURCE.iri(subjectId!!)

@@ -20,6 +20,8 @@ object BodsRdf {
     val TYPE_ENTITY = VOCABULARY.iri("Entity")
     val TYPE_OWNERSHIP_CTRL_STATEMENT = VOCABULARY.iri("OwnershipCtrlStatement")
 
+    val PROP_REPLACES_STATEMENTS = VOCABULARY.iri("replacesStatements")
+
     val PROP_NATIONALITY_CODE = VOCABULARY.iri("nationalityCode")
 
     val PROP_INTERESTED_PARTY = VOCABULARY.iri("hasInterestedParty")

@@ -67,6 +67,7 @@ $dokka.location:org.kbods.rdf/BodsRdf/PROP_JURISDICTION/#/PointingToDeclaration/
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_NATIONALITY_CODE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-n-a-t-i-o-n-a-l-i-t-y_-c-o-d-e.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_OWNS_OR_CONTROLS/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-o-w-n-s_-o-r_-c-o-n-t-r-o-l-s.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_PERSON_TYPE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-p-e-r-s-o-n_-t-y-p-e.html
+$dokka.location:org.kbods.rdf/BodsRdf/PROP_REPLACES_STATEMENTS/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-r-e-p-l-a-c-e-s_-s-t-a-t-e-m-e-n-t-s.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_STATEMENT_DATE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-s-t-a-t-e-m-e-n-t_-d-a-t-e.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_STATEMENT_ID/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-s-t-a-t-e-m-e-n-t_-i-d.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_STATEMENT_SOURCE_TYPE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-s-t-a-t-e-m-e-n-t_-s-o-u-r-c-e_-t-y-p-e.html
