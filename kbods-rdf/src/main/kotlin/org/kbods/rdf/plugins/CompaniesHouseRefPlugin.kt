@@ -25,7 +25,6 @@ class CompaniesHouseRefPlugin : BodsConvertPlugin {
             val companyNumber = bodsStatement.identifier(JsonConst.IDENTIFIER_SCHEME_COMPANIES_HOUSE)
             if (companyNumber != null) {
                 statements.add(subject, OWL.SAMEAS, CH_NAMESPACE.iri(companyNumber))
-                statements.add(subject, OWL.SAMEAS, CH_BUSINESS_NAMESPACE.iri(companyNumber))
             }
         }
         return statements
@@ -33,7 +32,6 @@ class CompaniesHouseRefPlugin : BodsConvertPlugin {
 
     companion object {
         const val NAME = "uk-company-refs"
-        val CH_NAMESPACE = "http://data.companieshouse.gov.uk/doc/company/".namespace("ch")
-        val CH_BUSINESS_NAMESPACE = "http://business.data.gov.uk/id/company/".namespace("chb")
+        val CH_NAMESPACE = "http://business.data.gov.uk/id/company/".namespace("ch")
     }
 }

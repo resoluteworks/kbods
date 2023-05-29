@@ -51,8 +51,7 @@ object BodsRdf {
         FOAF.NS,
         VOCABULARY,
         RESOURCE,
-        CompaniesHouseRefPlugin.CH_NAMESPACE,
-        CompaniesHouseRefPlugin.CH_BUSINESS_NAMESPACE
+        CompaniesHouseRefPlugin.CH_NAMESPACE
     )
 }
 
