@@ -40,7 +40,7 @@ $dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#java.io.File#org.
 $dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#org.eclipse.rdf4j.repository.Repository#org.kbods.rdf.vocabulary.BodsSchemaVersion/PointingToDeclaration/kbods-rdf/org.kbods.rdf.vocabulary/-bods-vocabulary/write.html
 $dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#org.eclipse.rdf4j.repository.RepositoryConnection#org.kbods.rdf.vocabulary.BodsSchemaVersion/PointingToDeclaration/kbods-rdf/org.kbods.rdf.vocabulary/-bods-vocabulary/write.html
 $dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#org.eclipse.rdf4j.rio.RDFWriter#org.kbods.rdf.vocabulary.BodsSchemaVersion/PointingToDeclaration/kbods-rdf/org.kbods.rdf.vocabulary/-bods-vocabulary/write.html
-$dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#org.rdf4k.repository.StatementsBatch#org.kbods.rdf.vocabulary.BodsSchemaVersion/PointingToDeclaration/kbods-rdf/org.kbods.rdf.vocabulary/-bods-vocabulary/write.html
+$dokka.location:org.kbods.rdf.vocabulary/BodsVocabulary/write/#org.rdf4k.StatementsBatch#org.kbods.rdf.vocabulary.BodsSchemaVersion/PointingToDeclaration/kbods-rdf/org.kbods.rdf.vocabulary/-bods-vocabulary/write.html
 $dokka.location:org.kbods.rdf////PointingToDeclaration/kbods-rdf/org.kbods.rdf/index.html
 $dokka.location:org.kbods.rdf//FILE_OUTPUT_BUFFER_SIZE/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-f-i-l-e_-o-u-t-p-u-t_-b-u-f-f-e-r_-s-i-z-e.html
 $dokka.location:org.kbods.rdf//bodsEntityType/org.kbods.read.BodsStatement#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/bods-entity-type.html
@@ -52,7 +52,7 @@ $dokka.location:org.kbods.rdf//import/org.kbods.read.BodsDownload#org.eclipse.rd
 $dokka.location:org.kbods.rdf//iri/org.kbods.read.BodsStatement#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/iri.html
 $dokka.location:org.kbods.rdf//toRdf/kotlin.collections.List[org.kbods.read.BodsStatement]#org.kbods.rdf.BodsRdfConfig/PointingToDeclaration/kbods-rdf/org.kbods.rdf/to-rdf.html
 $dokka.location:org.kbods.rdf//toRdf/org.kbods.read.BodsStatement#org.kbods.rdf.BodsRdfConfig/PointingToDeclaration/kbods-rdf/org.kbods.rdf/to-rdf.html
-$dokka.location:org.kbods.rdf//write/org.kbods.read.BodsStatement#org.rdf4k.repository.StatementsBatch#org.kbods.rdf.BodsRdfConfig/PointingToDeclaration/kbods-rdf/org.kbods.rdf/write.html
+$dokka.location:org.kbods.rdf//write/org.kbods.read.BodsStatement#org.rdf4k.StatementsBatch#org.kbods.rdf.BodsRdfConfig/PointingToDeclaration/kbods-rdf/org.kbods.rdf/write.html
 $dokka.location:org.kbods.rdf/BodsRdf///PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/index.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_INTERESTED_PARTY/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-i-n-t-e-r-e-s-t-e-d_-p-a-r-t-y.html
 $dokka.location:org.kbods.rdf/BodsRdf/PROP_INTEREST_DETAILS/#/PointingToDeclaration/kbods-rdf/org.kbods.rdf/-bods-rdf/-p-r-o-p_-i-n-t-e-r-e-s-t_-d-e-t-a-i-l-s.html

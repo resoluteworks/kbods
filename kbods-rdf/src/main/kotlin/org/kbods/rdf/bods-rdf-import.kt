@@ -5,8 +5,8 @@ import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
 import org.kbods.read.useBodsStatements
-import org.rdf4k.repository.StatementsBatch
-import org.rdf4k.repository.useBatch
+import org.rdf4k.StatementsBatch
+import org.rdf4k.useBatch
 import java.io.File
 import java.io.InputStream
 
@@ -54,8 +54,8 @@ fun Sequence<BodsStatement>.import(
 }
 
 fun BodsStatement.write(
-    batch: StatementsBatch,
-    config: BodsRdfConfig
+        batch: StatementsBatch,
+        config: BodsRdfConfig
 ) {
     val rdfStatements = toRdf(config)
     batch.add(rdfStatements)

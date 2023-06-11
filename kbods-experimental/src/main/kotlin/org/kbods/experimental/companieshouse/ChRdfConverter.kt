@@ -8,8 +8,8 @@ import org.eclipse.rdf4j.rio.RDFWriter
 import org.kbods.utils.cleanWhitespace
 import org.rdf4k.iri
 import org.rdf4k.literal
-import org.rdf4k.useRdfWriter
-import org.rdf4k.write
+import org.rdf4k.rio.useRdfWriter
+import org.rdf4k.rio.write
 import java.io.File
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

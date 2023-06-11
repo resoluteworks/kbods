@@ -4,7 +4,6 @@ import org.eclipse.rdf4j.model.Statement
 import org.kbods.rdf.BodsRdfWriter
 import org.kbods.read.BodsStatement
 import org.kbods.read.BodsStatementType
-import org.rdf4k.fileRdfFormat
 import java.io.File
 
 interface BodsConvertPlugin {

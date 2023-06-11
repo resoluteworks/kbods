@@ -4,8 +4,8 @@ import org.eclipse.rdf4j.model.Statement
 import org.eclipse.rdf4j.rio.RDFFormat
 import org.eclipse.rdf4j.rio.RDFWriter
 import org.eclipse.rdf4j.rio.Rio
-import org.rdf4k.fileRdfFormat
-import org.rdf4k.write
+import org.rdf4k.rio.fileRdfFormat
+import org.rdf4k.rio.write
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.OutputStream

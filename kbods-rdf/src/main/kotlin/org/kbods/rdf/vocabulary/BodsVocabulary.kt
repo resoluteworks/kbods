@@ -19,9 +19,9 @@ import org.kbods.utils.httpClient
 import org.kbods.utils.resourceAsInput
 import org.kbods.utils.resourceExists
 import org.kbods.utils.unzip
-import org.rdf4k.repository.StatementsBatch
-import org.rdf4k.resourceAsRdfModel
-import org.rdf4k.useRdfWriter
+import org.rdf4k.StatementsBatch
+import org.rdf4k.rio.resourceAsRdfModel
+import org.rdf4k.rio.useRdfWriter
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.StringReader
