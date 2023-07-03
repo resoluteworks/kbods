@@ -5,8 +5,7 @@ set -e
 VERSION=`cat version.properties | grep "version" | awk -F' *= *' '{print $2}'`
 echo "Version is $VERSION"
 
-rm -rf docs/dokka
-./gradlew clean dokkaHtml test
+./gradlew clean test
 ./gradlew publish
 
 git add --all
