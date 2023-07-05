@@ -65,6 +65,10 @@ subprojects {
         }
     }
 
+    dokkaHtml {
+        outputDirectory.set(file("../build/dokka/${project.name}"))
+    }
+
     publishing {
         repositories {
             mavenLocal()
