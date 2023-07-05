@@ -54,11 +54,8 @@ subprojects {
         testImplementation 'org.testcontainers:testcontainers:1.17.6'
     }
 
-    compileKotlin {
-        kotlinOptions.jvmTarget = "17"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "17"
+    kotlin {
+        jvmToolchain(11)
     }
 
     test {
@@ -68,18 +65,14 @@ subprojects {
         }
     }
 
-    dokkaHtml {
-        outputDirectory.set(file("../docs/dokka/${project.name}"))
-    }
-
     publishing {
         repositories {
             mavenLocal()
             maven {
                 url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
                 credentials {
-                    username = "${NEXUS_USERNAME}"
-                    password = "${NEXUS_PASSWORD}"
+                    username = System.getenv('NEXUS_USERNAME')
+                    password = System.getenv('NEXUS_PASSWORD')
                 }
             }
         }

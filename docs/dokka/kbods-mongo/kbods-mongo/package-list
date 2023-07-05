@@ -1,9 +1,0 @@
-$dokka.format:html-v1
-$dokka.linkExtension:html
-$dokka.location:org.kbods.mongodb////PointingToDeclaration/kbods-mongo/org.kbods.mongodb/index.html
-$dokka.location:org.kbods.mongodb//import/org.kbods.read.BodsDownload#com.mongodb.client.MongoCollection[org.bson.Document]#kotlin.Int/PointingToDeclaration/kbods-mongo/org.kbods.mongodb/import.html
-$dokka.location:org.kbods.mongodb//importBodsStatements/com.mongodb.client.MongoCollection[org.bson.Document]#java.io.File#kotlin.Int/PointingToDeclaration/kbods-mongo/org.kbods.mongodb/import-bods-statements.html
-$dokka.location:org.kbods.mongodb//importBodsStatements/com.mongodb.client.MongoCollection[org.bson.Document]#java.io.InputStream#kotlin.Int/PointingToDeclaration/kbods-mongo/org.kbods.mongodb/import-bods-statements.html
-$dokka.location:org.kbods.mongodb//writeBodsStatements/com.mongodb.client.MongoCollection[org.bson.Document]#kotlin.collections.List[org.kbods.read.BodsStatement]/PointingToDeclaration/kbods-mongo/org.kbods.mongodb/write-bods-statements.html
-org.kbods.mongodb
-

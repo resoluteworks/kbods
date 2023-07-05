@@ -8,13 +8,7 @@ echo "Version is $VERSION"
 ./gradlew clean test
 ./gradlew publish
 
-git add --all
-git commit -am "Release $VERSION"
-git push
-git tag "${VERSION}"
+git tag "v${VERSION}" -m "Release v${VERSION}"
 git push --tags --force
 
-gh release create "${VERSION}" --verify-tag --title "KBODS ${VERSION}" --notes "Version ${VERSION}"
-
 echo "Finished building version $VERSION"
-
