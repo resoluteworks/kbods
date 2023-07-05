@@ -15,10 +15,10 @@ the tools provided here support the download and ingestion of this register out 
 
 | Module | API docs | Description|
 | --- | --- | --- |
-| [kbods-rdf](kbods-rdf) | [API Docs](https://cosmin-marginean.github.io/kbods/dokka/kbods-rdf) | RDF vocabulary and related tooling. |
-| kbods-read | [API Docs](https://cosmin-marginean.github.io/kbods/dokka/kbods-read) | Download, unpack and process BODS datasets |
-| kbods-elasticsearch | [API Docs](https://cosmin-marginean.github.io/kbods/dokka/kbods-elasticsearch) | Import a BODS dataset to Elasticsearch |
-| kbods-mongo | [API Docs](https://cosmin-marginean.github.io/kbods/dokka/kbods-mongo) | Import a BODS dataset to MongoDB |
+| [kbods-rdf](kbods-rdf) | [API Docs](https://cosmin-marginean.github.io/kbods/kbods-rdf/) | RDF vocabulary and related tooling. |
+| kbods-read | [API Docs](https://cosmin-marginean.github.io/kbods/kbods-read/) | Download, unpack and process BODS datasets |
+| kbods-elasticsearch | [API Docs](https://cosmin-marginean.github.io/kbods/kbods-elasticsearch/) | Import a BODS dataset to Elasticsearch |
+| kbods-mongo | [API Docs](https://cosmin-marginean.github.io/kbods/kbods-mongo/) | Import a BODS dataset to MongoDB |
 
 ## Usage
 
