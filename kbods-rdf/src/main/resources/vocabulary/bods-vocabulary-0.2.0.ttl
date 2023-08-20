@@ -5,7 +5,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix bods: <http://bods.openownership.org/vocabulary/> .
 @prefix bodsr: <http://bods.openownership.org/resource/> .
-@prefix ch: <http://business.data.gov.uk/id/company/> .
+@prefix ch: <http://data.companieshouse.gov.uk/doc/company/> .
 
 bods:Party a rdfs:Class;
   owl:equivalentClass foaf:Agent .

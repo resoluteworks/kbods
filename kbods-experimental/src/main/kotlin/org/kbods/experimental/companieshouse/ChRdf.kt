@@ -5,7 +5,7 @@ import org.rdf4k.namespace
 
 object ChRdf {
 
-    val COMPANIES_HOUSE = "http://business.data.gov.uk/id/company/".namespace("ch")
+    val COMPANIES_HOUSE = "http://data.companieshouse.gov.uk/doc/company/".namespace("ch")
     val NAMESPACE_TERMS = "http://www.companieshouse.gov.uk/terms/".namespace("cht")
 
     val PROP_COMPANY_STATUS = NAMESPACE_TERMS.iri("CompanyStatus")

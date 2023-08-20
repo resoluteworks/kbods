@@ -32,6 +32,6 @@ class CompaniesHouseRefPlugin : BodsConvertPlugin {
 
     companion object {
         const val NAME = "uk-company-refs"
-        val CH_NAMESPACE = "http://business.data.gov.uk/id/company/".namespace("ch")
+        val CH_NAMESPACE = "http://data.companieshouse.gov.uk/doc/company/".namespace("ch")
     }
 }
