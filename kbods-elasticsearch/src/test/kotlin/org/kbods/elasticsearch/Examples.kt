@@ -1,7 +1,7 @@
 package org.kbods.elasticsearch
 
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager
-import org.kbods.rdf.toRdf
+import org.kbods.rdf.toRdfStatements
 import org.kbods.read.BodsDownload
 import java.io.File
 
@@ -10,9 +10,9 @@ class Examples : ElasticsearchContainerTest() {
     fun test() {
         // Download, unzip and import the latest Open Ownership register to Elasticsearch
         BodsDownload.latest().import(
-            elasticsearchClient = esClient,
-            index = "my-index",
-            batchSize = 100
+                elasticsearchClient = esClient,
+                index = "my-index",
+                batchSize = 100
         )
 
         // Import a local JSONL file to Elasticsearch
@@ -28,7 +28,7 @@ class Examples : ElasticsearchContainerTest() {
             BodsDownload.latest().useStatementSequence { sequence ->
                 sequence.chunked(1000).forEach { batch ->
                     esClient.writeBodsStatements("myindex", batch)
-                    connection.add(batch.toRdf())
+                    connection.add(batch.toRdfStatements())
                 }
             }
         }

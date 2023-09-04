@@ -6,7 +6,6 @@ import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
 import org.kbods.read.useBodsStatements
-import org.rdf4k.StatementsBatch
 import org.rdf4k.useBatch
 import java.io.File
 import java.io.InputStream
@@ -49,27 +48,24 @@ fun Sequence<BodsStatement>.import(
     connection.useBatch(batchSize) { batch ->
         BodsVocabulary.write(batch)
         forEach { bodsStatement ->
-            bodsStatement.write(batch, config)
+            batch.add(bodsStatement.toRdfStatements(config))
         }
-    }
-}
-
-fun BodsStatement.write(
-        batch: StatementsBatch,
-        config: BodsRdfConfig
-) {
-    val rdfStatements = toRdf(config)
-    batch.add(rdfStatements)
-    config.runPlugins(this) { _, statements ->
-        batch.add(statements)
     }
 }
 
 fun BodsStatement.toRdfStatements(config: BodsRdfConfig): List<Statement> {
     val statements = mutableListOf<Statement>()
-    statements.addAll(toRdf(config))
+    statements.addAll(coreRdfStatements(config))
     config.runPlugins(this) { _, pluginStatements ->
         statements.addAll(pluginStatements)
+    }
+    return statements
+}
+
+fun List<BodsStatement>.toRdfStatements(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
+    val statements = mutableListOf<Statement>()
+    forEach { statement ->
+        statements.addAll(statement.toRdfStatements(config))
     }
     return statements
 }

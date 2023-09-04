@@ -12,7 +12,7 @@ class ReplacesStatementTest {
     @Test
     fun replacesStatements() {
         val statement = BodsStatement(resourceAsString("replaces-statements.json"))
-        val statements = statement.toRdf()
+        val statements = statement.coreRdfStatements()
         assertTrue { statements.contains(statement(statement.iri(), BodsRdf.PROP_REPLACES_STATEMENTS, BodsRdf.RESOURCE.iri("1542730339269426528"))) }
         assertTrue { statements.contains(statement(statement.iri(), BodsRdf.PROP_REPLACES_STATEMENTS, BodsRdf.RESOURCE.iri("14609729328118672241"))) }
     }

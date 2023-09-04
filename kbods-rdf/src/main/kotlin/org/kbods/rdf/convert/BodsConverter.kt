@@ -4,7 +4,7 @@ import org.kbods.rdf.BodsRdfConfig
 import org.kbods.rdf.BodsRdfWriter
 import org.kbods.rdf.close
 import org.kbods.rdf.plugins.separateFile
-import org.kbods.rdf.toRdf
+import org.kbods.rdf.coreRdfStatements
 import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
 import org.kbods.read.BodsStatement
@@ -47,7 +47,7 @@ class BodsConverter(
                 BodsVocabulary.write(coreWriter.rdfWriter)
             }
             statements.forEach { bodsStatement ->
-                val rdfStatements = bodsStatement.toRdf(config)
+                val rdfStatements = bodsStatement.coreRdfStatements(config)
                 coreWriters.forEach { coreWriter ->
                     coreWriter.write(rdfStatements)
                     config.runPlugins(bodsStatement) { pluginName, statements ->

@@ -22,15 +22,15 @@ internal fun String.literalDate(): Literal {
     return valueFactory.createLiteral(this, XSD.DATE)
 }
 
-internal fun List<BodsStatement>.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
+internal fun List<BodsStatement>.coreRdfStatements(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
     val statements = mutableListOf<Statement>()
     forEach { statement ->
-        statements.addAll(statement.toRdf(config))
+        statements.addAll(statement.coreRdfStatements(config))
     }
     return statements
 }
 
-internal fun BodsStatement.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
+internal fun BodsStatement.coreRdfStatements(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
     val statements = mutableListOf<Statement>()
 
     val typeStatements = when (this.statementType) {
