@@ -1,5 +1,6 @@
 package org.kbods.rdf
 
+import org.eclipse.rdf4j.model.Statement
 import org.eclipse.rdf4j.repository.RepositoryConnection
 import org.kbods.rdf.vocabulary.BodsVocabulary
 import org.kbods.read.BodsDownload
@@ -11,9 +12,9 @@ import java.io.File
 import java.io.InputStream
 
 fun BodsDownload.import(
-    connection: RepositoryConnection,
-    batchSize: Int = 10_000,
-    config: BodsRdfConfig = BodsRdfConfig()
+        connection: RepositoryConnection,
+        batchSize: Int = 10_000,
+        config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useStatementSequence { sequence ->
         sequence.import(connection, batchSize, config)
@@ -21,9 +22,9 @@ fun BodsDownload.import(
 }
 
 fun File.import(
-    connection: RepositoryConnection,
-    batchSize: Int = 10_000,
-    config: BodsRdfConfig = BodsRdfConfig()
+        connection: RepositoryConnection,
+        batchSize: Int = 10_000,
+        config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useBodsStatements { sequence ->
         sequence.import(connection, batchSize, config)
@@ -31,9 +32,9 @@ fun File.import(
 }
 
 fun InputStream.import(
-    connection: RepositoryConnection,
-    batchSize: Int = 10_000,
-    config: BodsRdfConfig = BodsRdfConfig()
+        connection: RepositoryConnection,
+        batchSize: Int = 10_000,
+        config: BodsRdfConfig = BodsRdfConfig()
 ) {
     this.useBodsStatements { sequence ->
         sequence.import(connection, batchSize, config)
@@ -41,9 +42,9 @@ fun InputStream.import(
 }
 
 fun Sequence<BodsStatement>.import(
-    connection: RepositoryConnection,
-    batchSize: Int,
-    config: BodsRdfConfig = BodsRdfConfig()
+        connection: RepositoryConnection,
+        batchSize: Int,
+        config: BodsRdfConfig = BodsRdfConfig()
 ) {
     connection.useBatch(batchSize) { batch ->
         BodsVocabulary.write(batch)
@@ -62,4 +63,13 @@ fun BodsStatement.write(
     config.runPlugins(this) { _, statements ->
         batch.add(statements)
     }
+}
+
+fun BodsStatement.toRdfStatements(config: BodsRdfConfig): List<Statement> {
+    val statements = mutableListOf<Statement>()
+    statements.addAll(toRdf(config))
+    config.runPlugins(this) { _, pluginStatements ->
+        statements.addAll(pluginStatements)
+    }
+    return statements
 }
