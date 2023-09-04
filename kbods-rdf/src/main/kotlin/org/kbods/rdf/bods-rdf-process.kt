@@ -30,6 +30,10 @@ internal fun List<BodsStatement>.coreRdfStatements(config: BodsRdfConfig = BodsR
     return statements
 }
 
+/**
+ * Returns the core RDF statements for this BodsStatement. Doesn't include any plugin statements.
+ * For internal use only.
+ */
 internal fun BodsStatement.coreRdfStatements(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
     val statements = mutableListOf<Statement>()
 

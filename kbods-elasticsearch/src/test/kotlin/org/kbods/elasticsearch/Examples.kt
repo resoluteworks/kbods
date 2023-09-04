@@ -1,7 +1,7 @@
 package org.kbods.elasticsearch
 
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager
-import org.kbods.rdf.toRdfStatements
+import org.kbods.rdf.toRdf
 import org.kbods.read.BodsDownload
 import java.io.File
 
@@ -28,7 +28,7 @@ class Examples : ElasticsearchContainerTest() {
             BodsDownload.latest().useStatementSequence { sequence ->
                 sequence.chunked(1000).forEach { batch ->
                     esClient.writeBodsStatements("myindex", batch)
-                    connection.add(batch.toRdfStatements())
+                    connection.add(batch.toRdf())
                 }
             }
         }

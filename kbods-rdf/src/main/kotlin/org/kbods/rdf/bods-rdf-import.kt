@@ -48,12 +48,12 @@ fun Sequence<BodsStatement>.import(
     connection.useBatch(batchSize) { batch ->
         BodsVocabulary.write(batch)
         forEach { bodsStatement ->
-            batch.add(bodsStatement.toRdfStatements(config))
+            batch.add(bodsStatement.toRdf(config))
         }
     }
 }
 
-fun BodsStatement.toRdfStatements(config: BodsRdfConfig): List<Statement> {
+fun BodsStatement.toRdf(config: BodsRdfConfig): List<Statement> {
     val statements = mutableListOf<Statement>()
     statements.addAll(coreRdfStatements(config))
     config.runPlugins(this) { _, pluginStatements ->
@@ -62,10 +62,10 @@ fun BodsStatement.toRdfStatements(config: BodsRdfConfig): List<Statement> {
     return statements
 }
 
-fun List<BodsStatement>.toRdfStatements(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
+fun List<BodsStatement>.toRdf(config: BodsRdfConfig = BodsRdfConfig()): List<Statement> {
     val statements = mutableListOf<Statement>()
     forEach { statement ->
-        statements.addAll(statement.toRdfStatements(config))
+        statements.addAll(statement.toRdf(config))
     }
     return statements
 }
