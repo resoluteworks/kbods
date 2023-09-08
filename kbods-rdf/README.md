@@ -12,7 +12,7 @@ schema version.
 
 ## Downloads
 Last exported 08/09/2023.
-| Dataset | Turtle | BRF<sup>1</sup> |
+| Dataset | Turtle | BRF <sup>1</sup> |
 | --- | --- | --- |
 | Open Ownership register in RDF format | [bods.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.ttl.gz) 1.45GB | [bods.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.brf.gz) 2.6GB |
 | Relationships only <sup>2</sup> | [bods-relationships-only.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.ttl.gz) 637MB | [bods-relationships-only.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.brf.gz) 898MB |
