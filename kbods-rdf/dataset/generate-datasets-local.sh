@@ -16,7 +16,8 @@ OUTPUT_DIR="$(realpath $WORKING_DIR/output)"
 cd $WORKING_DIR
 
 # Download and unpack
-curl "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz" > statements.latest.jsonl.gz
+#curl "https://oo-register-production.s3-eu-west-1.amazonaws.com/public/exports/statements.latest.jsonl.gz" > statements.latest.jsonl.gz
+curl "https://public-bods.s3-eu-west-1.amazonaws.com/exports/ex20230722_all.jsonl.gz" > statements.latest.jsonl.gz
 echo "Unpacking statements.latest.jsonl.gz"
 gunzip statements.latest.jsonl.gz
 

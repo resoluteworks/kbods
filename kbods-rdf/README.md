@@ -11,12 +11,12 @@ schema version.
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
 
 ## Downloads
-Last exported 08/05/2023.
+Last exported 08/09/2023.
 | Dataset | Turtle | BRF<sup>1</sup> |
 | --- | --- | --- |
-| Open Ownership register in RDF format | [bods.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.ttl.gz) 1.3GB | [bods.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.brf.gz) 2.5GB |
-| Relationships only <sup>2</sup> | [bods-relationships-only.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.ttl.gz) 581MB | [bods-relationships-only.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.brf.gz) 876MB |
-| UK Companies references <sup>3</sup> | [bods-uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-uk-company-refs.ttl.gz) 157MB | [bods-uk-company-refs.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-uk-company-refs.brf.gz) 233MB |
+| Open Ownership register in RDF format | [bods.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.ttl.gz) 1.45GB | [bods.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods.brf.gz) 2.6GB |
+| Relationships only <sup>2</sup> | [bods-relationships-only.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.ttl.gz) 637MB | [bods-relationships-only.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-relationships-only.brf.gz) 898MB |
+| UK Companies references <sup>3</sup> | [bods-uk-company-refs.ttl.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-uk-company-refs.ttl.gz) 131MB | [bods-uk-company-refs.brf.gz](https://bods-rdf.s3-eu-west-1.amazonaws.com/data/bods-uk-company-refs.brf.gz) 143MB |
 
 <sup>1</sup> [BRF](https://rdf4j.org/javadoc/latest/org/eclipse/rdf4j/rio/RDFFormat.html#BINARY) format is larger when compressed but smaller unpacked.
 Due to its binary nature, it should be faster to import in an RDF triplestore.   
