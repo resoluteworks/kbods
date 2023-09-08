@@ -47,7 +47,7 @@ Read more about this [here](https://world.hey.com/cos/using-bods-rdf-to-link-ben
 #### Gradle dependency
 ```groovy
 dependencies {
-    implementation 'io.resoluteworks:kbods-rdf:0.9.1'
+    implementation "io.resoluteworks:kbods-rdf:${kbodsVersion}"
 }
 ```
 
@@ -98,7 +98,7 @@ BodsVocabulary.write(repository)
 
 #### Fetch the fat JAR for the latest version
 ```shell
-KBODS_VERSION="0.9.1"
+KBODS_VERSION="0.11.1"
 BODS_RDF_JAR="https://repo.maven.apache.org/maven2/io/resoluteworks/kbods-rdf/${KBODS_VERSION}/kbods-rdf-${KBODS_VERSION}-all.jar"
 curl $BODS_RDF_JAR > bods-rdf.jar
 ```
