@@ -5,7 +5,7 @@ as [RDF](https://www.w3.org/RDF/). It is an implementation of the [BODS RDF prop
 and provides an RDF vocabulary for BODS schema (0.1.0/0.2.0/0.3.0).
 
 The library also provides tooling for processing the [Open Ownership bulk register](https://register.openownership.org/download).
-Please note that the current version of the register is published in the [0.2.0](https://standard.openownership.org/en/0.1.0/)
+Please note that the current version of the register is published in the [0.2.0](https://standard.openownership.org/en/0.2.0/)
 schema version.
 
 <img width="600" alt="2023-02-04_16-36-38" src="https://user-images.githubusercontent.com/2995576/216779559-64e9e754-efdb-44bd-8b9a-a1f87c643332.png">
